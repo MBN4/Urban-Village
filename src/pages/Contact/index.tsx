@@ -1,0 +1,132 @@
+import { motion } from 'motion/react';
+import { Send, MapPin, Phone, Mail } from 'lucide-react';
+import { contactInfo } from './data';
+
+export default function Contact() {
+  return (
+    <div className="pt-40 bg-[#E9F0E1] text-stone-900 min-h-screen">
+      <section className="section-padding max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
+        <div className="lg:w-1/2">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-[10px] font-bold tracking-[0.4em] uppercase text-lime mb-8 block"
+          >
+            {contactInfo.subtitle}
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-6xl md:text-8xl font-serif font-bold text-stone-900 mb-12 whitespace-pre-line leading-[0.9] italic"
+          >
+            {contactInfo.title}
+          </motion.h1>
+          <p className="text-xl text-stone-500 mb-16 max-w-md leading-relaxed">
+            {contactInfo.description}
+          </p>
+
+          <div className="space-y-10">
+            {contactInfo.details.map((detail) => (
+              <div key={detail.label}>
+                <div className="text-[10px] font-bold uppercase tracking-widest text-stone-300 mb-2">{detail.label}</div>
+                <a href={`mailto:${detail.value}`} className="text-2xl font-serif font-bold text-stone-900 border-b border-stone-900/10 hover:border-lime transition-colors pb-1 italic">
+                  {detail.value}
+                </a>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-20 pt-10 border-t border-stone-900/5 flex flex-col sm:flex-row gap-12">
+            <div className="flex items-start gap-4">
+              <MapPin size={20} className="text-lime mt-1" />
+              <div className="text-sm text-stone-400 leading-relaxed max-w-[180px]">
+                {contactInfo.office.address}
+              </div>
+            </div>
+            <div className="flex items-start gap-4">
+              <Phone size={20} className="text-lime mt-1" />
+              <div className="text-sm text-stone-400">
+                {contactInfo.office.phone}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="lg:w-1/2 bg-white/40 glass-card p-10 md:p-20 shadow-2xl shadow-stone-900/5 border border-stone-900/5">
+          <form className="space-y-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+              <div className="group relative">
+                <label className="text-[10px] uppercase tracking-widest font-bold text-stone-300 group-focus-within:text-lime transition-colors mb-2 block">First Name</label>
+                <input type="text" className="w-full bg-transparent border-b-2 border-stone-900/10 focus:border-lime focus:outline-none py-2 text-lg transition-colors text-stone-900" />
+              </div>
+              <div className="group relative">
+                <label className="text-[10px] uppercase tracking-widest font-bold text-stone-300 group-focus-within:text-lime transition-colors mb-2 block">Last Name</label>
+                <input type="text" className="w-full bg-transparent border-b-2 border-stone-900/10 focus:border-lime focus:outline-none py-2 text-lg transition-colors text-stone-900" />
+              </div>
+            </div>
+            <div className="group relative">
+              <label className="text-[10px] uppercase tracking-widest font-bold text-stone-300 group-focus-within:text-lime transition-colors mb-2 block">Email Address</label>
+              <input type="email" className="w-full bg-transparent border-b-2 border-stone-900/10 focus:border-lime focus:outline-none py-2 text-lg transition-colors text-stone-900" />
+            </div>
+            <div className="group relative">
+              <label className="text-[10px] uppercase tracking-widest font-bold text-stone-300 group-focus-within:text-lime transition-colors mb-2 block">Subject</label>
+              <select className="w-full bg-transparent border-b-2 border-stone-900/10 focus:border-lime focus:outline-none py-2 text-lg transition-colors appearance-none text-stone-900 cursor-pointer">
+                <option className="bg-white">General Inquiry</option>
+                <option className="bg-white">Wholesale</option>
+                <option className="bg-white">Partnership</option>
+              </select>
+            </div>
+            <div className="group relative">
+              <label className="text-[10px] uppercase tracking-widest font-bold text-stone-300 group-focus-within:text-lime transition-colors mb-2 block">Message</label>
+              <textarea rows={4} className="w-full bg-transparent border-b-2 border-stone-900/10 focus:border-lime focus:outline-none py-2 text-lg transition-colors resize-none overflow-hidden text-stone-900" />
+            </div>
+            <button className="w-full bg-stone-900 text-white py-6 rounded-full font-bold uppercase tracking-[0.2em] text-[10px] flex items-center justify-center gap-4 hover:bg-lime transition-all duration-500 group shadow-lg shadow-stone-900/20">
+              Send Message <Send size={18} className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+            </button>
+          </form>
+        </div>
+      </section>
+
+      {/* 3. FAQ Section */}
+      <section className="section-padding max-w-7xl mx-auto border-t border-stone-900/5">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-20">
+          <div className="lg:col-span-1">
+             <span className="text-[10px] font-bold tracking-[0.4em] text-lime uppercase mb-6 block">SUPPORT</span>
+             <h2 className="text-5xl font-serif font-bold text-stone-900 italic leading-tight">Common <br /> <span className="not-italic">Questions.</span></h2>
+          </div>
+          <div className="lg:col-span-2 space-y-12">
+            {[
+              { q: 'How does your delivery cycle work?', a: 'We harvest every Tuesday and Thursday. Depending on your location, your basket arrives within 24-48 hours of being picked.' },
+              { q: 'Can I customize my weekly basket?', a: 'Absolutely. Subscribers can swap up to 4 items in their "Regenerative Box" each week via our mobile app.' },
+              { q: 'What makes your produce "carbon-neutral"?', a: 'We offset our shipping carbon through soil sequestration credits generated purely on our own partner farms.' },
+               { q: 'Do you offer international shipping?', a: 'Currently, our "Pure Harvest" model only supports the Vermont Highlands and surrounding northeast territories to ensure peak freshness.' }
+            ].map((faq, i) => (
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="group"
+              >
+                <div className="text-lg font-serif font-bold text-stone-900 mb-4 group-hover:text-lime transition-colors italic">0{i+1}. {faq.q}</div>
+                <p className="text-stone-500 text-sm leading-relaxed max-w-xl pl-8 border-l border-stone-900/10 group-hover:border-lime transition-colors">{faq.a}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Map Placeholder */}
+      <section className="px-6 pb-20">
+        <div className="w-full h-[500px] bg-[#DEE8D4]/50 rounded-[60px] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 cursor-help flex items-center justify-center relative">
+           <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover opacity-50" referrerPolicy="no-referrer" alt="Map View" />
+           <div className="absolute inset-0 flex items-center justify-center">
+             <div className="bg-white px-8 py-4 rounded-full shadow-2xl flex items-center gap-3">
+               <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse" />
+               <span className="text-xs font-bold uppercase tracking-widest">Our Head Office</span>
+             </div>
+           </div>
+        </div>
+      </section>
+    </div>
+  );
+}
