@@ -1,4 +1,4 @@
-import Home from '@/pages/Home';
+import Home from '@/views/Home';
 
 export const metadata = {
   title: 'Urban Village | Home',

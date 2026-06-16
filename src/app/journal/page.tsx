@@ -1,4 +1,4 @@
-import Journal from '@/pages/Journal';
+import Journal from '@/views/Journal';
 
 export const metadata = {
   title: 'Urban Village | Journal',

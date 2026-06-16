@@ -1,4 +1,4 @@
-import About from '@/pages/About';
+import About from '@/views/About';
 
 export const metadata = {
   title: 'Urban Village | Our Story',

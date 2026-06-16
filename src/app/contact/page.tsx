@@ -1,4 +1,4 @@
-import Contact from '@/pages/Contact';
+import Contact from '@/views/Contact';
 
 export const metadata = {
   title: 'Urban Village | Contact',

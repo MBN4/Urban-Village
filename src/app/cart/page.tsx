@@ -1,4 +1,4 @@
-import Cart from '@/pages/Cart';
+import Cart from '@/views/Cart';
 
 export const metadata = {
   title: 'Urban Village | Cart',

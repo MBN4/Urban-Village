@@ -1,4 +1,4 @@
-import Shop from '@/pages/Shop';
+import Shop from '@/views/Shop';
 
 export const metadata = {
   title: 'Urban Village | Shop',
