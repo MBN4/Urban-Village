@@ -10,7 +10,7 @@ export default function Cart() {
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   return (
-    <div className="pt-40 pb-32 bg-[#E9F0E1] text-stone-900 min-h-screen">
+    <div className="pt-40 pb-32 text-stone-900 min-h-screen">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <header className="mb-16">
           <motion.span 

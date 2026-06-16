@@ -4,7 +4,7 @@ import { contactInfo } from './data';
 
 export default function Contact() {
   return (
-    <div className="pt-40 bg-[#E9F0E1] text-stone-900 min-h-screen">
+    <div className="pt-40 text-stone-900 min-h-screen">
       <section className="section-padding max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
         <div className="lg:w-1/2">
           <motion.span 

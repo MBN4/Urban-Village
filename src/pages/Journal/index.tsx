@@ -4,7 +4,7 @@ import { journalHero, articles } from './data';
 
 export default function Journal() {
   return (
-    <div className="pt-40 bg-[#E9F0E1] text-stone-900 min-h-screen">
+    <div className="pt-40 text-stone-900 min-h-screen">
       <section className="section-padding max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-end gap-12 mb-24">
           <div className="lg:w-2/3">

@@ -2,13 +2,13 @@ import { motion } from 'motion/react';
 import { Leaf, Apple, Cherry, Carrot, Soup, Sprout, Wheat } from 'lucide-react';
 
 const icons = [
-  { Icon: Leaf, size: 24, color: 'text-lime/20' },
-  { Icon: Apple, size: 32, color: 'text-stone-900/10' },
-  { Icon: Cherry, size: 20, color: 'text-lime/15' },
-  { Icon: Carrot, size: 28, color: 'text-stone-900/5' },
-  { Icon: Soup, size: 24, color: 'text-lime/12' },
-  { Icon: Sprout, size: 22, color: 'text-lime/14' },
-  { Icon: Wheat, size: 30, color: 'text-stone-900/8' },
+  { Icon: Leaf, size: 38, color: 'text-lime/20' },
+  { Icon: Apple, size: 50, color: 'text-stone-900/10' },
+  { Icon: Cherry, size: 32, color: 'text-lime/15' },
+  { Icon: Carrot, size: 44, color: 'text-stone-900/5' },
+  { Icon: Soup, size: 38, color: 'text-lime/12' },
+  { Icon: Sprout, size: 35, color: 'text-lime/14' },
+  { Icon: Wheat, size: 48, color: 'text-stone-900/8' },
 ];
 
 export default function FloatingIcons() {
@@ -44,7 +44,7 @@ export default function FloatingIcons() {
   });
 
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden select-none z-[100]">
+    <div className="fixed inset-0 pointer-events-none overflow-hidden select-none z-0">
       {floatingElements}
     </div>
   );

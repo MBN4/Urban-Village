@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 export default function Home() {
   const { addToCart } = useCart();
   return (
-    <div className="flex flex-col bg-[#E9F0E1] text-stone-900 selection:bg-lime selection:text-white">
+    <div className="flex flex-col text-stone-900 selection:bg-lime selection:text-white">
       {/* 1. Hero Section - Immersive Layout */}
       <section className="relative min-h-screen flex flex-col pt-40 px-6 bg-linear-to-br from-[#E9F0E1] via-[#DEE8D4] to-lime/10 overflow-hidden">
         <main className="flex-1 grid grid-cols-12 gap-6 items-end max-w-7xl mx-auto w-full pb-12">

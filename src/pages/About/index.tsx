@@ -7,7 +7,7 @@ export default function About() {
   const [activeFaq, setActiveFaq] = useState<number | null>(0);
 
   return (
-    <div className="pt-40 bg-[#E9F0E1] text-stone-900 overflow-x-hidden">
+    <div className="pt-40 text-stone-900 overflow-x-hidden">
       {/* 1. Hero */}
       <section className="section-padding max-w-7xl mx-auto flex flex-col items-center text-center">
         <motion.span 
@@ -103,7 +103,7 @@ export default function About() {
       </section>
 
       {/* 3. The Pillars */}
-      <section className="section-padding bg-[#E9F0E1]">
+      <section className="section-padding">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24">
             <h2 className="text-5xl md:text-7xl font-serif font-bold text-stone-900">Our Three Pillars</h2>

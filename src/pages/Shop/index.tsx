@@ -13,7 +13,7 @@ export default function Shop() {
     : shopProducts.filter(p => p.category === activeFilter);
 
   return (
-    <div className="pt-40 bg-[#E9F0E1] text-stone-900 min-h-screen">
+    <div className="pt-40 text-stone-900 min-h-screen">
       {/* Header */}
       <section className="px-6 md:px-12 lg:px-20 max-w-7xl mx-auto mb-20 text-center">
         <motion.span 
