@@ -1,7 +1,10 @@
+'use client';
+
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
-import { ShoppingCart, Menu, X, Leaf } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom';
+import { ShoppingCart, Menu, X } from 'lucide-react';
 import { navLinks, siteName } from './data';
 import { useCart } from '../../../context/CartContext';
 
@@ -10,7 +13,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const location = useLocation();
+  const pathname = usePathname();
   const { cartCount } = useCart();
 
   useEffect(() => {
@@ -39,12 +42,12 @@ export default function Navbar() {
       initial={{ y: 0 }}
       animate={{ y: visible ? 0 : -100 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
-      className={`fixed top-0 left-0 w-full z-[150] transition-colors duration-500 ${
+      className={`fixed top-0 left-0 w-full z-150 transition-colors duration-500 ${
         scrolled ? 'bg-[#E9F0E1]/90 backdrop-blur-md py-4 border-b border-stone-900/5' : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        <Link to="/" className="flex items-center gap-3 group">
+        <Link href="/" className="flex items-center gap-3 group">
           <img 
             src="/assets/images/urban-village-logo.png" 
             alt="Urban Village Logo" 
@@ -60,9 +63,9 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <Link
               key={link.name}
-              to={link.path}
+              href={link.path}
               className={`text-[10px] uppercase tracking-[0.2em] font-bold transition-colors hover:text-lime ${
-                location.pathname === link.path ? 'text-lime' : 'text-stone-900/60'
+                pathname === link.path ? 'text-lime' : 'text-stone-900/60'
               }`}
             >
               {link.name}
@@ -71,7 +74,7 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-6">
-          <Link to="/cart" className="relative p-2 hover:bg-stone-900/5 rounded-full transition-colors text-stone-900">
+          <Link href="/cart" className="relative p-2 hover:bg-stone-900/5 rounded-full transition-colors text-stone-900">
             <ShoppingCart size={20} />
             {cartCount > 0 && (
               <span className="absolute top-0 right-0 w-4 h-4 bg-lime text-white text-[10px] font-bold flex items-center justify-center rounded-full">
@@ -79,7 +82,7 @@ export default function Navbar() {
               </span>
             )}
           </Link>
-          <Link to="/shop" className="hidden lg:block px-6 py-2 bg-stone-900 text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-lime transition-colors">
+          <Link href="/shop" className="hidden lg:block px-6 py-2 bg-stone-900 text-white rounded-full text-xs font-bold uppercase tracking-widest hover:bg-lime transition-colors">
             Get the basket
           </Link>
           <button 
@@ -104,7 +107,7 @@ export default function Navbar() {
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
-                  to={link.path}
+                  href={link.path}
                   className="text-xl font-serif font-medium text-stone-900"
                   onClick={() => setIsOpen(false)}
                 >

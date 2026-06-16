@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import { journalHero, articles } from './data';

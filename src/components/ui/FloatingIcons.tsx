@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { Leaf, Apple, Cherry, Carrot, Soup, Sprout, Wheat } from 'lucide-react';
 

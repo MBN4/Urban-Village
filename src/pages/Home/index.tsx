@@ -1,8 +1,10 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { ArrowRight, Star, ShieldCheck, Truck, Recycle, Plus } from 'lucide-react';
+import Link from 'next/link';
 import { heroData, marqueeItems, productCategories, storyData, products, testimonials, benefits, farmLogos } from './data';
 import { useCart } from '../../context/CartContext';
-import { Link } from 'react-router-dom';
 
 export default function Home() {
   const { addToCart } = useCart();
@@ -58,7 +60,7 @@ export default function Home() {
               transition={{ delay: 0.8 }}
               className="flex gap-4 pt-4"
             >
-              <Link to="/shop" className="px-8 py-4 bg-lime text-white rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-lime/20 flex items-center justify-center">
+              <Link href="/shop" className="px-8 py-4 bg-lime text-white rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-lime/20 flex items-center justify-center">
                 Shop Harvest
               </Link>
               <button className="px-8 py-4 bg-stone-900/5 border border-stone-900/10 text-stone-900 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-stone-900/10 transition-all">

@@ -1,7 +1,9 @@
+'use client';
+
 import { motion, AnimatePresence } from 'motion/react';
+import Link from 'next/link';
 import { useCart } from '../../context/CartContext';
 import { Trash2, Plus, Minus, ArrowRight, ShoppingBag } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import CheckoutModal from '../../components/ui/CheckoutModal';
 
@@ -41,7 +43,7 @@ export default function Cart() {
             <h2 className="text-3xl font-serif font-bold text-stone-900 mb-6 italic">Your basket is empty</h2>
             <p className="text-stone-500 mb-10 max-w-sm">Looks like you haven't added any of our seasonal harvest to your basket yet.</p>
             <Link 
-              to="/shop" 
+              href="/shop" 
               className="bg-stone-900 text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-lime transition-all duration-300 shadow-lg shadow-stone-900/20"
             >
               Start Shopping

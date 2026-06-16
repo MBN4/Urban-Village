@@ -1,3 +1,5 @@
+'use client';
+
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight, CheckCircle2, Plus, Minus } from 'lucide-react';
 import { aboutHero, pillars, team, practices, faqs } from './data';

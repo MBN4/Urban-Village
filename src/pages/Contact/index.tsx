@@ -1,3 +1,5 @@
+'use client';
+
 import { motion } from 'motion/react';
 import { Send, MapPin, Phone, Mail } from 'lucide-react';
 import { contactInfo } from './data';

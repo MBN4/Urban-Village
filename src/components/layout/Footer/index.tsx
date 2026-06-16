@@ -1,5 +1,7 @@
+'use client';
+
+import Link from 'next/link';
 import { Leaf } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { footerLinks, socialLinks } from './data';
 
 export default function Footer() {
@@ -7,7 +9,7 @@ export default function Footer() {
     <footer className="bg-[#DEE8D4] text-stone-900 py-20 px-6 md:px-12 lg:px-20 mt-20 border-t border-stone-900/5">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
         <div className="lg:col-span-2">
-          <Link to="/" className="flex items-center gap-3 mb-8">
+          <Link href="/" className="flex items-center gap-3 mb-8">
             <img 
               src="/assets/images/urban-village-logo.png" 
               alt="Urban Village Logo" 
@@ -40,7 +42,7 @@ export default function Footer() {
               {group.links.map((link) => (
                 <li key={link.name}>
                   <Link 
-                    to={link.path} 
+                    href={link.path} 
                     className="text-sm hover:text-lime transition-colors font-medium text-stone-900/70"
                   >
                     {link.name}

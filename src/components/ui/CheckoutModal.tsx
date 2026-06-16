@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, CheckCircle2, Truck, Smartphone, CreditCard, Send, MapPin, Copy, ArrowLeft } from 'lucide-react';
