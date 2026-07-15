@@ -8,17 +8,17 @@ export const pillars = [
   {
     title: 'Biodiversity',
     description: 'We move beyond monocultures to create polycultural ecosystems where life thrives at every level, from soil microbes to predatory birds.',
-    image: 'https://images.unsplash.com/photo-1599403248882-7ed37286392f?auto=format&fit=crop&q=80&w=800'
+    image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg'
   },
   {
     title: 'Fair Equity',
     description: 'Structural change requires financial honesty. We pay our producers significantly above fair trade standards to ensure long-term farm resilience.',
-    image: 'https://images.unsplash.com/photo-1495539406979-bf61750d38ad?auto=format&fit=crop&q=80&w=800'
+    image: '/assets/images/products/pickles/mix-boneless-achaar.png'
   },
   {
     title: 'Radical Honesty',
     description: 'Transparency isn’t a buzzword for us. We publish our soil health reports, carbon sequestration data, and supply chain margins annually.',
-    image: 'https://images.unsplash.com/photo-1464226632400-50d3550e5672?auto=format&fit=crop&q=80&w=800'
+    image: '/assets/images/products/spices/turmeric-powder.png'
   }
 ];
 

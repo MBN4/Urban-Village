@@ -1,13 +1,24 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Star, ShieldCheck, Truck, Recycle, Plus } from 'lucide-react';
 import Link from 'next/link';
-import { heroData, marqueeItems, productCategories, storyData, products, testimonials, benefits, farmLogos } from './data';
+import { heroData, heroSlides, marqueeItems, productCategories, storyData, products, testimonials, benefits, farmLogos } from './data';
 import { useCart } from '../../context/CartContext';
 
 export default function Home() {
   const { addToCart } = useCart();
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 3500);
+    return () => clearInterval(timer);
+  }, []);
+
+  const slide = heroSlides[activeSlide];
   return (
     <div className="flex flex-col text-stone-900 selection:bg-lime selection:text-white">
       {/* 1. Hero Section - Immersive Layout */}
@@ -26,32 +37,32 @@ export default function Home() {
           </div>
 
           {/* Main Hero Text */}
-          <div className="col-span-12 lg:col-span-7 flex flex-col justify-end pb-12 space-y-8">
+          <div className="col-span-12 lg:col-span-6 flex flex-col justify-end pb-12 space-y-8">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               className="inline-block px-4 py-1.5 bg-lime/10 text-lime border border-lime/20 rounded-full text-[10px] font-bold tracking-[0.2em] uppercase w-fit"
             >
-              Seasonal Harvest No. 08
+              Pure • Handmade • Desi
             </motion.div>
-            
-            <motion.h1 
+
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              className="text-7xl md:text-[10rem] font-serif leading-[0.85] tracking-tighter text-stone-900"
+              className="text-6xl md:text-8xl font-serif leading-[0.9] tracking-tighter text-stone-900"
             >
-              <span className="italic">Wild-Grown</span> <br />
-              <span className="font-bold not-italic">Elegance.</span>
+              <span className="italic">Liquid</span> <br />
+              <span className="font-bold not-italic">Gold.</span>
             </motion.h1>
 
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="text-lg md:text-xl text-stone-600 max-w-md leading-relaxed"
+              className="text-base md:text-lg text-stone-600 max-w-md leading-relaxed"
             >
-              Sourced from high-altitude volcanic soil, our produce redefines the standard of organic luxury. Experience nutrition, elevated.
+              Wood-churned desi ghee, hand-cut achaar, and stone-ground spices — made in small batches, the honest way.
             </motion.p>
 
             <motion.div 
@@ -69,51 +80,67 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Featured Card */}
-          <div className="col-span-12 lg:col-span-4 h-full hidden lg:block">
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 1 }}
-              className="glass-card h-full p-8 flex flex-col justify-between py-12"
-            >
-              <div className="space-y-6">
-                <div className="flex justify-between items-center">
-                  <span className="text-[10px] font-bold tracking-widest opacity-40 uppercase">Current Batch</span>
-                  <span className="text-[10px] font-bold text-lime uppercase tracking-widest bg-lime/10 px-3 py-1 rounded-full">98% Fresh</span>
-                </div>
-                
-                <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-emerald-50 to-white overflow-hidden border border-stone-900/5 relative group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=80&w=800" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80"
-                    alt="Featured"
+          {/* Featured Ghee Slider */}
+          <div className="col-span-12 lg:col-span-5 h-full flex items-center justify-center relative pb-12">
+            {/* soft radial glow behind the jars */}
+            <div className="absolute w-64 h-64 md:w-96 md:h-96 bg-lime/20 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative w-full max-w-sm flex flex-col items-center">
+              {/* floating image stage — stacked crossfade so the incoming jar never waits on the outgoing one */}
+              <motion.div
+                animate={{ y: [0, -14, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                className="relative w-full aspect-square"
+              >
+                <AnimatePresence>
+                  <motion.img
+                    key={activeSlide}
+                    src={slide.image}
+                    alt={slide.name}
+                    initial={{ opacity: 0, scale: 0.85, rotate: -6 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                    exit={{ opacity: 0, scale: 1.08, rotate: 6 }}
+                    transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+                    className="absolute inset-0 w-full h-full object-contain drop-shadow-2xl"
                   />
-                  <div className="absolute inset-0 flex items-center justify-center text-6xl">🥬</div>
-                </div>
+                </AnimatePresence>
+              </motion.div>
 
-                <div className="space-y-2">
-                  <h3 className="text-2xl font-serif font-bold italic text-stone-900">Arctic Kale Blend</h3>
-                  <p className="text-sm text-stone-500 leading-relaxed">Frost-kissed leaves harvested at dawn for maximum chlorophyll density and unmatched crispness.</p>
-                </div>
-              </div>
+              {/* name / price / add */}
+              <motion.div
+                key={`meta-${activeSlide}`}
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mt-6 flex items-center justify-between w-full gap-4"
+              >
+                  <div>
+                    <h3 className="text-2xl font-serif font-bold italic text-stone-900">{slide.name}</h3>
+                    <span className="text-lg font-bold text-lime">{slide.price}</span>
+                  </div>
+                  <button
+                    onClick={() => addToCart(slide)}
+                    className="w-12 h-12 shrink-0 rounded-full bg-stone-900 text-white flex items-center justify-center cursor-pointer hover:bg-lime transition-all duration-300 shadow-lg shadow-stone-900/10"
+                    aria-label={`Add ${slide.name} to cart`}
+                  >
+                    <Plus size={20} />
+                  </button>
+                </motion.div>
 
-              <div className="pt-8 border-t border-stone-900/10 flex justify-between items-center">
-                <span className="text-3xl font-bold text-stone-900">$14.00</span>
-                <button 
-                  onClick={() => addToCart({
-                    id: 'arctic-kale',
-                    name: 'Arctic Kale Blend',
-                    price: '$14.00',
-                    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=80&w=800',
-                    category: 'Vegetables'
-                  })}
-                  className="w-12 h-12 rounded-full bg-stone-900/5 flex items-center justify-center border border-stone-900/20 cursor-pointer hover:bg-lime hover:text-white transition-all duration-300"
-                >
-                  <Plus size={20} />
-                </button>
+              {/* slide indicators */}
+              <div className="flex gap-2.5 mt-8">
+                {heroSlides.map((s, i) => (
+                  <button
+                    key={s.id}
+                    onClick={() => setActiveSlide(i)}
+                    aria-label={`Show ${s.name}`}
+                    className={`h-1.5 rounded-full transition-all duration-500 ${
+                      i === activeSlide ? 'w-8 bg-lime' : 'w-1.5 bg-stone-900/20 hover:bg-stone-900/40'
+                    }`}
+                  />
+                ))}
               </div>
-            </motion.div>
+            </div>
           </div>
         </main>
       </section>

@@ -1,73 +1,221 @@
 export const bundles = [
   {
-    title: 'The Regenerative Box',
-    price: '$75',
-    items: ['12 Seasonal Veggies', 'Aromatic Herbs', 'Artisan Oil', 'Sourdough Starter'],
-    image: 'https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=800'
+    title: 'The Ghee Duo',
+    price: '$40.00',
+    items: ['Desi Ghee 1kg', 'Desi Ghee ½kg', 'Wood-Churned', 'Grass-Fed'],
+    image: '/assets/images/products/ghee/desi-ghee-both.jpeg'
   },
   {
-    title: 'Pantry Foundation',
-    price: '$120',
-    items: ['Stone-Ground Grains', '3 Infused Oils', 'Wild Honey', 'Sea Salts'],
-    image: 'https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&q=80&w=800'
+    title: 'Achaar Sampler',
+    price: '$25.00',
+    items: ['Mango Boneless', 'Garlic Pickle', 'Mix Boneless Achaar', 'Green Chutney'],
+    image: '/assets/images/products/pickles/mix-boneless-achaar.png'
   }
 ];
 
 export const shopHero = {
-  title: 'From our fields\nto your doorstep',
-  subtitle: 'SEASONAL HARVEST',
-  description: 'Shop our rotating selection of regeneratively grown produce, heirloom pantry staples, and artisanal kitchen goods.'
+  title: 'From our kitchen\nto your table',
+  subtitle: 'PURE & HANDMADE',
+  description: 'Shop our range of wood-churned desi ghee, hand-cut achaar, free-range desi poultry, and stone-ground spices — made in small batches, the traditional way.'
 };
 
-export const filters = ['All', 'Vegetables', 'Fruits', 'Grains', 'Pantry', 'Artisan'];
+export const filters = ['All', 'Ghee', 'Pickles', 'Poultry', 'Spices'];
 
 export const shopProducts = [
+  // Ghee — the hero product
   {
     id: 1,
-    name: 'Purple Heirloom Carrots',
-    price: '$6.50',
-    category: 'Vegetables',
-    image: 'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?auto=format&fit=crop&q=80&w=600',
-    tag: 'Seasonal'
+    name: 'Desi Ghee (1kg)',
+    price: '$28.00',
+    category: 'Ghee',
+    image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg',
+    tag: 'Bestseller'
   },
   {
     id: 2,
-    name: 'Wild Orchard Apples',
-    price: '$8.00',
-    category: 'Fruits',
-    image: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&q=80&w=600',
-    tag: 'Crisp'
+    name: 'Desi Ghee (½kg)',
+    price: '$15.00',
+    category: 'Ghee',
+    image: '/assets/images/products/ghee/desi-ghee-half-kg.jpeg',
+    tag: 'Pure'
   },
+  // Pickles
   {
     id: 3,
-    name: 'Stone-Ground Rye Flour',
-    price: '$12.00',
-    category: 'Grains',
-    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=600',
-    tag: 'Ancient'
+    name: 'Mango Boneless Pickle',
+    price: '$7.00',
+    category: 'Pickles',
+    image: '/assets/images/products/pickles/mango-boneless-pickle.png',
+    tag: 'Classic'
   },
   {
     id: 4,
-    name: 'Small-Batch Raw Honey',
-    price: '$22.00',
-    category: 'Pantry',
-    image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&q=80&w=600',
-    tag: 'Pure'
+    name: 'Garlic Pickle',
+    price: '$6.50',
+    category: 'Pickles',
+    image: '/assets/images/products/pickles/garlic-pickle.png',
+    tag: 'Zesty'
   },
   {
     id: 5,
-    name: 'Rain-Fed Kale',
-    price: '$4.50',
-    category: 'Vegetables',
-    image: 'https://images.unsplash.com/photo-1628173143900-57142405f63e?auto=format&fit=crop&q=80&w=600',
-    tag: 'Fresh'
+    name: 'Green Chili Pickle',
+    price: '$6.00',
+    category: 'Pickles',
+    image: '/assets/images/products/pickles/green-chili-pickle.png',
+    tag: 'Spicy'
   },
   {
     id: 6,
-    name: 'Artisan Sourdough Starter',
-    price: '$15.00',
-    category: 'Artisan',
-    image: 'https://images.unsplash.com/photo-1585478259715-876a6a81b764?auto=format&fit=crop&q=80&w=600',
-    tag: 'Craft'
+    name: 'Lemon Pickle',
+    price: '$6.00',
+    category: 'Pickles',
+    image: '/assets/images/products/pickles/lemon-pickle.png',
+    tag: 'Tangy'
+  },
+  {
+    id: 7,
+    name: 'Mix Boneless Achaar',
+    price: '$7.50',
+    category: 'Pickles',
+    image: '/assets/images/products/pickles/mix-boneless-achaar.png',
+    tag: 'Favorite'
+  },
+  {
+    id: 8,
+    name: 'Lehsoora Pickle',
+    price: '$6.50',
+    category: 'Pickles',
+    image: '/assets/images/products/pickles/lehsoora-pickle.png',
+    tag: 'Seasonal'
+  },
+  {
+    id: 9,
+    name: 'Aalo Bukhara & Dry Fruit Chutney',
+    price: '$8.00',
+    category: 'Pickles',
+    image: '/assets/images/products/pickles/aalo-bukhara-chutney.png',
+    tag: 'Sweet'
+  },
+  {
+    id: 10,
+    name: 'Green Chutney',
+    price: '$5.50',
+    category: 'Pickles',
+    image: '/assets/images/products/pickles/green-chutney.png',
+    tag: 'Fresh'
+  },
+  {
+    id: 11,
+    name: 'Imli Sauce',
+    price: '$5.50',
+    category: 'Pickles',
+    image: '/assets/images/products/pickles/imli-sauce.png',
+    tag: 'Tangy'
+  },
+  // Poultry
+  {
+    id: 12,
+    name: 'Desi Chicken (Whole)',
+    price: '$12.00',
+    category: 'Poultry',
+    image: '/assets/images/products/poultry/desi-chicken-meat.png',
+    tag: 'Free-Range'
+  },
+  {
+    id: 13,
+    name: 'Desi Chicken Minced',
+    price: '$13.00',
+    category: 'Poultry',
+    image: '/assets/images/products/poultry/desi-chicken-minced.png',
+    tag: 'Fresh'
+  },
+  {
+    id: 14,
+    name: 'Desi Eggs (Dozen)',
+    price: '$4.50',
+    category: 'Poultry',
+    image: '/assets/images/products/poultry/desi-eggs.png',
+    tag: 'Farm-Fresh'
+  },
+  // Spices
+  {
+    id: 15,
+    name: 'Organic Turmeric Powder',
+    price: '$5.00',
+    category: 'Spices',
+    image: '/assets/images/products/spices/turmeric-powder.png',
+    tag: 'Organic'
+  },
+  {
+    id: 16,
+    name: 'Red Chili Powder',
+    price: '$5.00',
+    category: 'Spices',
+    image: '/assets/images/products/spices/red-chili-powder.png',
+    tag: 'Hot'
+  },
+  {
+    id: 17,
+    name: 'Red Chili Flakes',
+    price: '$5.00',
+    category: 'Spices',
+    image: '/assets/images/products/spices/red-chili-flakes.png',
+    tag: 'Hot'
+  },
+  {
+    id: 18,
+    name: 'Coriander Powder',
+    price: '$4.50',
+    category: 'Spices',
+    image: '/assets/images/products/spices/coriander-powder.png',
+    tag: 'Ground'
+  },
+  {
+    id: 19,
+    name: 'Zeera (Cumin) Powder',
+    price: '$5.50',
+    category: 'Spices',
+    image: '/assets/images/products/spices/zeera-powder.png',
+    tag: 'Aromatic'
+  },
+  {
+    id: 20,
+    name: 'Mix Garam Masala Powder',
+    price: '$6.00',
+    category: 'Spices',
+    image: '/assets/images/products/spices/garam-masala-powder.png',
+    tag: 'Blend'
+  },
+  {
+    id: 21,
+    name: 'Chat Masala',
+    price: '$5.00',
+    category: 'Spices',
+    image: '/assets/images/products/spices/chat-masala.png',
+    tag: 'Tangy'
+  },
+  {
+    id: 22,
+    name: 'Black Pepper Powder',
+    price: '$6.50',
+    category: 'Spices',
+    image: '/assets/images/products/spices/black-pepper-powder.png',
+    tag: 'Bold'
+  },
+  {
+    id: 23,
+    name: 'Pink Himalayan Salt',
+    price: '$4.00',
+    category: 'Spices',
+    image: '/assets/images/products/spices/pink-himalayan-salt.png',
+    tag: 'Mineral'
+  },
+  {
+    id: 24,
+    name: 'White Lahori Salt',
+    price: '$3.50',
+    category: 'Spices',
+    image: '/assets/images/products/spices/white-lahori-salt.png',
+    tag: 'Traditional'
   }
 ];

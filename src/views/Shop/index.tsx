@@ -159,7 +159,7 @@ export default function Shop() {
           </div>
           <div className="lg:w-1/2 relative">
              <div className="rounded-[60px] overflow-hidden aspect-square border-8 border-stone-900/5 shadow-2xl">
-               <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover" alt="Logistics" />
+               <img src="/assets/images/products/ghee/desi-ghee-both.jpeg" className="w-full h-full object-cover" alt="Wood-churned desi ghee" />
              </div>
           </div>
         </div>

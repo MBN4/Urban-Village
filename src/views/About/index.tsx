@@ -52,7 +52,7 @@ export default function About() {
                whileInView={{ opacity: 1, x: 0 }}
                className="absolute -top-12 -left-12 w-48 h-64 rounded-[32px] overflow-hidden shadow-2xl z-20 border border-white/20"
             >
-              <img src="https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&q=80&w=600" className="w-full h-full object-cover" alt="Soil health" />
+              <img src="/assets/images/products/spices/red-chili-flakes.png" className="w-full h-full object-cover" alt="Stone-ground spices" />
             </motion.div>
             
             <motion.div 
@@ -61,7 +61,7 @@ export default function About() {
                className="absolute inset-0 rounded-[48px] overflow-hidden shadow-inner z-10 bg-white p-4"
             >
                <div className="w-full h-full rounded-[32px] overflow-hidden border border-stone-200">
-                <img src="https://images.unsplash.com/photo-1500651230702-0e2d8a49d4ad?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover grayscale" alt="Farming tools" />
+                <img src="/assets/images/products/ghee/desi-ghee-both.jpeg" className="w-full h-full object-cover grayscale" alt="Desi ghee" />
                </div>
             </motion.div>
 
@@ -223,20 +223,20 @@ export default function About() {
       {/* 7. Gallery Section */}
       <section className="py-20 px-6 grid grid-cols-2 md:grid-cols-4 gap-6 h-[80vh]">
         <div className="rounded-[40px] overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover" referrerPolicy="no-referrer" alt="Gallery" />
+          <img src="/assets/images/products/ghee/desi-ghee-1kg.jpeg" className="w-full h-full object-cover" alt="Desi ghee 1kg" />
         </div>
         <div className="grid grid-rows-2 gap-6">
-          <div className="rounded-[40px] overflow-hidden"><img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover" referrerPolicy="no-referrer" alt="Gallery" /></div>
-          <div className="rounded-[40px] overflow-hidden"><img src="https://images.unsplash.com/photo-1495539406979-bf61750d38ad?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover" referrerPolicy="no-referrer" alt="Gallery" /></div>
+          <div className="rounded-[40px] overflow-hidden"><img src="/assets/images/products/pickles/garlic-pickle.png" className="w-full h-full object-cover" alt="Garlic pickle" /></div>
+          <div className="rounded-[40px] overflow-hidden"><img src="/assets/images/products/spices/turmeric-powder.png" className="w-full h-full object-cover" alt="Turmeric powder" /></div>
         </div>
         <div className="rounded-[40px] overflow-hidden">
-          <img src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover" referrerPolicy="no-referrer" alt="Gallery" />
+          <img src="/assets/images/products/poultry/desi-eggs.png" className="w-full h-full object-cover" alt="Desi eggs" />
         </div>
         <div className="grid grid-rows-2 gap-6">
           <div className="rounded-[40px] overflow-hidden bg-stone-900 flex items-center justify-center p-10 text-center">
             <span className="text-xl font-serif text-white italic leading-tight italic">Our mission is written in the earth.</span>
           </div>
-          <div className="rounded-[40px] overflow-hidden"><img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&q=80&w=800" className="w-full h-full object-cover" referrerPolicy="no-referrer" alt="Gallery" /></div>
+          <div className="rounded-[40px] overflow-hidden"><img src="/assets/images/products/pickles/mango-boneless-pickle.png" className="w-full h-full object-cover" alt="Mango pickle" /></div>
         </div>
       </section>
 

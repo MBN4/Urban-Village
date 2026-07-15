@@ -10,6 +10,30 @@ export const heroData = {
   ]
 };
 
+export const heroSlides = [
+  {
+    id: 1,
+    name: 'Desi Ghee (1kg)',
+    price: '$28.00',
+    image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg',
+    category: 'Ghee'
+  },
+  {
+    id: 2,
+    name: 'Desi Ghee (½kg)',
+    price: '$15.00',
+    image: '/assets/images/products/ghee/desi-ghee-half-kg.jpeg',
+    category: 'Ghee'
+  },
+  {
+    id: 'ghee-duo',
+    name: 'Desi Ghee Duo',
+    price: '$40.00',
+    image: '/assets/images/products/ghee/desi-ghee-both.jpeg',
+    category: 'Ghee'
+  }
+];
+
 export const marqueeItems = [
   'VIBRANT SEASONAL PRODUCE',
   'REGENERATIVE FARMING',
@@ -23,31 +47,31 @@ export const marqueeItems = [
 export const products = [
   {
     id: 1,
-    name: 'Wild Honeyberry Jam',
-    price: '$14.00',
-    image: 'https://images.unsplash.com/photo-1549637642-991847c02b55?auto=format&fit=crop&q=80&w=600',
-    tag: 'Limited'
-  },
-  {
-    id: 2,
-    name: 'Extra Virgin Olive Oil',
-    price: '$32.00',
-    image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&q=80&w=600',
-    tag: 'Favorite'
+    name: 'Desi Ghee (1kg)',
+    price: '$28.00',
+    image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg',
+    tag: 'Bestseller'
   },
   {
     id: 3,
-    name: 'Dried Heirloom Chilies',
-    price: '$9.00',
-    image: 'https://images.unsplash.com/photo-1574316071802-0d6840d32117?auto=format&fit=crop&q=80&w=600',
-    tag: 'New'
+    name: 'Mango Boneless Pickle',
+    price: '$7.00',
+    image: '/assets/images/products/pickles/mango-boneless-pickle.png',
+    tag: 'Classic'
   },
   {
-    id: 4,
-    name: 'Cold-Pressed Nut Butter',
-    price: '$18.00',
-    image: 'https://images.unsplash.com/photo-1551613204-2070e171b3e8?auto=format&fit=crop&q=80&w=600',
-    tag: 'Creamy'
+    id: 15,
+    name: 'Organic Turmeric Powder',
+    price: '$5.00',
+    image: '/assets/images/products/spices/turmeric-powder.png',
+    tag: 'Organic'
+  },
+  {
+    id: 14,
+    name: 'Desi Eggs (Dozen)',
+    price: '$4.50',
+    image: '/assets/images/products/poultry/desi-eggs.png',
+    tag: 'Farm-Fresh'
   }
 ];
 
@@ -86,30 +110,30 @@ export const farmLogos = [
 export const productCategories = [
   {
     id: 1,
-    title: 'Seasonal Greens',
-    image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&q=80&w=800',
-    description: 'Freshly plucked from our organic polyculture fields.',
-    count: '12 Items'
+    title: 'Desi Ghee',
+    image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg',
+    description: 'Wood-churned from grass-fed cattle, the traditional way.',
+    count: '2 Items'
   },
   {
     id: 2,
-    title: 'Heirloom Roots',
-    image: 'https://images.unsplash.com/photo-1444858291040-58f756a3bdd6?auto=format&fit=crop&q=80&w=800',
-    description: 'Ancestral varieties grown for flavor and resilience.',
-    count: '18 Items'
+    title: 'Pickles & Chutneys',
+    image: '/assets/images/products/pickles/mango-boneless-pickle.png',
+    description: 'Hand-cut achaar preserved by hand in small batches.',
+    count: '9 Items'
   },
   {
     id: 3,
-    title: 'Artisan Pantry',
-    image: 'https://images.unsplash.com/photo-1471193945509-9ad0617afabf?auto=format&fit=crop&q=80&w=800',
-    description: 'Preserved by hand using traditional slow methods.',
-    count: '24 Items'
+    title: 'Stone-Ground Spices',
+    image: '/assets/images/products/spices/red-chili-powder.png',
+    description: 'Pure, unadulterated masalas ground fresh for full aroma.',
+    count: '10 Items'
   }
 ];
 
 export const storyData = {
   title: 'Beyond the Leaf',
   subtitle: 'OUR PHILOSOPHY',
-  description: 'We believe that health begins in the soil. By embracing regenerative practices that restore biodiversity and sequester carbon, we don’t just grow food—we nurture ecosystems.',
-  image: 'https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=1200'
+  description: 'We believe real food is made slowly and honestly. From wood-churned ghee to hand-cut achaar, every jar carries the flavour of tradition and the trust of pure ingredients.',
+  image: '/assets/images/products/ghee/desi-ghee-both.jpeg'
 };

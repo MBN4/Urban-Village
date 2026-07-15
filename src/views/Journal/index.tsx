@@ -113,7 +113,7 @@ export default function Journal() {
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
           <div className="lg:w-1/2">
              <div className="rounded-[40px] overflow-hidden aspect-video lg:aspect-square border border-stone-900/5 shadow-2xl shadow-stone-900/5">
-               <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" referrerPolicy="no-referrer" alt="Featured" />
+               <img src="/assets/images/products/ghee/desi-ghee-1kg.jpeg" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" alt="Featured" />
              </div>
           </div>
           <div className="lg:w-1/2">

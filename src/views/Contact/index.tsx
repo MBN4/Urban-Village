@@ -120,7 +120,7 @@ export default function Contact() {
       {/* 4. Map Placeholder */}
       <section className="px-6 pb-20">
         <div className="w-full h-[500px] bg-[#DEE8D4]/50 rounded-[60px] overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 cursor-help flex items-center justify-center relative">
-           <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=2000" className="w-full h-full object-cover opacity-50" referrerPolicy="no-referrer" alt="Map View" />
+           <img src="/assets/images/products/spices/pink-himalayan-salt.png" className="w-full h-full object-cover opacity-50" alt="Pink Himalayan salt" />
            <div className="absolute inset-0 flex items-center justify-center">
              <div className="bg-white px-8 py-4 rounded-full shadow-2xl flex items-center gap-3">
                <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse" />
