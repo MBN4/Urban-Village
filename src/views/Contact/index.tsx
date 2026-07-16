@@ -8,7 +8,7 @@ export default function Contact() {
   return (
     <div className="pt-40 text-stone-900 min-h-screen">
       <section className="section-padding max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
-        <div className="lg:w-1/2">
+        <div className="lg:w-1/2 min-w-0">
           <motion.span 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -19,7 +19,7 @@ export default function Contact() {
           <motion.h1 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-6xl md:text-8xl font-serif font-bold text-stone-900 mb-12 whitespace-pre-line leading-[0.9] italic"
+            className="text-5xl md:text-7xl font-serif font-bold text-stone-900 mb-12 whitespace-pre-line leading-[0.95] italic break-words"
           >
             {contactInfo.title}
           </motion.h1>

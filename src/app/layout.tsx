@@ -10,6 +10,11 @@ import Preloader from '@/components/ui/Preloader';
 export const metadata: Metadata = {
   title: 'Urban Village',
   description: 'Urban Village brings regenerative produce and sustainable farm-to-door delivery to discerning food lovers.',
+  icons: {
+    icon: '/assets/images/urban-village-logo.png',
+    shortcut: '/assets/images/urban-village-logo.png',
+    apple: '/assets/images/urban-village-logo.png',
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
