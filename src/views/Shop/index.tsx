@@ -1,10 +1,14 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
 import { Filter, Search, ChevronDown, Plus } from 'lucide-react';
 import { shopHero, shopProducts, filters, bundles } from './data';
 import { useCart } from '../../context/CartContext';
+
+// A product is buyable only if it has a real PKR price; otherwise it's enquiry-only.
+const isPriced = (price: string) => price.startsWith('Rs');
 
 export default function Shop() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -117,18 +121,27 @@ export default function Shop() {
                       <li key={item} className="text-[10px] uppercase tracking-widest text-stone-400">{item}</li>
                     ))}
                   </ul>
-                  <button 
-                    onClick={() => addToCart({
-                      id: bundle.title,
-                      name: bundle.title,
-                      price: bundle.price,
-                      image: bundle.image,
-                      category: 'Bundle'
-                    })}
-                    className="w-full py-4 bg-stone-900/5 border border-stone-900/10 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-stone-900 hover:text-white transition-colors"
-                  >
-                    Add to Basket
-                  </button>
+                  {isPriced(bundle.price) ? (
+                    <button
+                      onClick={() => addToCart({
+                        id: bundle.title,
+                        name: bundle.title,
+                        price: bundle.price,
+                        image: bundle.image,
+                        category: 'Bundle'
+                      })}
+                      className="w-full py-4 bg-stone-900/5 border border-stone-900/10 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-stone-900 hover:text-white transition-colors"
+                    >
+                      Add to Basket
+                    </button>
+                  ) : (
+                    <Link
+                      href="/contact"
+                      className="block text-center w-full py-4 border border-lime/40 text-lime rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-lime hover:text-white transition-colors"
+                    >
+                      Call to Order
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </div>
@@ -202,11 +215,6 @@ export default function Shop() {
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       referrerPolicy="no-referrer"
                     />
-                    <div className="absolute inset-0 bg-lime/0 group-hover:bg-lime/5 transition-colors duration-500 flex items-center justify-center gap-4">
-                      <button className="bg-white text-stone-900 px-6 py-3 rounded-full opacity-0 translate-y-10 group-hover:opacity-100 group-hover:translate-y-0 shadow-xl transition-all duration-500 delay-100 font-bold text-[10px] uppercase tracking-widest hover:bg-lime hover:text-white">
-                        Quick View
-                      </button>
-                    </div>
                     <span className="absolute top-6 left-6 bg-white text-stone-900 text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-sm">
                       {product.tag}
                     </span>
@@ -218,14 +226,27 @@ export default function Shop() {
                       </span>
                       <h3 className="text-2xl font-serif font-bold text-stone-900 italic">{product.name}</h3>
                     </div>
-                    <span className="text-xl font-bold text-lime">{product.price}</span>
+                    {isPriced(product.price) ? (
+                      <span className="text-xl font-bold text-lime whitespace-nowrap">{product.price}</span>
+                    ) : (
+                      <span className="text-[11px] font-bold uppercase tracking-widest text-lime whitespace-nowrap">Call for Query</span>
+                    )}
                   </div>
-                  <button 
-                    onClick={() => addToCart(product)}
-                    className="w-full py-4 mt-4 border border-stone-900/10 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-stone-900 hover:text-white transition-all duration-500"
-                  >
-                    Add to Cart
-                  </button>
+                  {isPriced(product.price) ? (
+                    <button
+                      onClick={() => addToCart(product)}
+                      className="w-full py-4 mt-4 border border-stone-900/10 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-stone-900 hover:text-white transition-all duration-500"
+                    >
+                      Add to Cart
+                    </button>
+                  ) : (
+                    <Link
+                      href="/contact"
+                      className="block text-center w-full py-4 mt-4 border border-lime/40 text-lime rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-lime hover:text-white transition-all duration-500"
+                    >
+                      Call to Order
+                    </Link>
+                  )}
                 </motion.div>
             ))}
           </AnimatePresence>

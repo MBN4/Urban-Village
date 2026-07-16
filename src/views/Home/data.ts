@@ -14,21 +14,21 @@ export const heroSlides = [
   {
     id: 1,
     name: 'Desi Ghee (1kg)',
-    price: '$28.00',
+    price: 'Rs 2,800',
     image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg',
     category: 'Ghee'
   },
   {
     id: 2,
     name: 'Desi Ghee (½kg)',
-    price: '$15.00',
+    price: 'Rs 1,500',
     image: '/assets/images/products/ghee/desi-ghee-half-kg.jpeg',
     category: 'Ghee'
   },
   {
     id: 'ghee-duo',
     name: 'Desi Ghee Duo',
-    price: '$40.00',
+    price: 'Rs 4,300',
     image: '/assets/images/products/ghee/desi-ghee-both.jpeg',
     category: 'Ghee'
   }
@@ -48,28 +48,28 @@ export const products = [
   {
     id: 1,
     name: 'Desi Ghee (1kg)',
-    price: '$28.00',
+    price: 'Rs 2,800',
     image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg',
     tag: 'Bestseller'
   },
   {
     id: 3,
     name: 'Mango Boneless Pickle',
-    price: '$7.00',
+    price: 'Call for query',
     image: '/assets/images/products/pickles/mango-boneless-pickle.png',
     tag: 'Classic'
   },
   {
     id: 15,
     name: 'Organic Turmeric Powder',
-    price: '$5.00',
+    price: 'Call for query',
     image: '/assets/images/products/spices/turmeric-powder.png',
     tag: 'Organic'
   },
   {
     id: 14,
     name: 'Desi Eggs (Dozen)',
-    price: '$4.50',
+    price: 'Rs 800',
     image: '/assets/images/products/poultry/desi-eggs.png',
     tag: 'Farm-Fresh'
   }

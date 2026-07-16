@@ -76,7 +76,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const cartTotal = cart.reduce((total, item) => {
-    const price = parseFloat(item.price.replace('$', ''));
+    // Strip any currency label / thousands separators (e.g. "Rs 2,800" -> 2800).
+    // Non-priced items ("Call for query") yield NaN and are treated as 0; they
+    // are never added to the cart, so they can't affect the total anyway.
+    const price = parseFloat(item.price.replace(/[^\d.]/g, '')) || 0;
     return total + price * item.quantity;
   }, 0);
 

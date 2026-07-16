@@ -108,7 +108,7 @@ export default function Cart() {
                 <div className="space-y-6 mb-10 pb-10 border-b border-white/10">
                   <div className="flex justify-between text-white/60">
                     <span className="text-xs uppercase tracking-widest font-bold">Subtotal</span>
-                    <span className="font-bold">${cartTotal.toFixed(2)}</span>
+                    <span className="font-bold">Rs {cartTotal.toLocaleString('en-US')}</span>
                   </div>
                   <div className="flex justify-between text-white/60">
                     <span className="text-xs uppercase tracking-widest font-bold">Delivery</span>
@@ -117,7 +117,7 @@ export default function Cart() {
                 </div>
                 <div className="flex justify-between items-end mb-12">
                   <span className="text-xs uppercase tracking-widest font-bold text-lime">Total</span>
-                  <span className="text-4xl font-serif font-bold italic">${cartTotal.toFixed(2)}</span>
+                  <span className="text-4xl font-serif font-bold italic">Rs {cartTotal.toLocaleString('en-US')}</span>
                 </div>
                 <button 
                   onClick={() => setIsCheckoutOpen(true)}

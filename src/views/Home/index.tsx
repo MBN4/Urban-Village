@@ -7,6 +7,9 @@ import Link from 'next/link';
 import { heroData, heroSlides, marqueeItems, productCategories, storyData, products, testimonials, benefits, farmLogos } from './data';
 import { useCart } from '../../context/CartContext';
 
+// A product is buyable only if it has a real PKR price; otherwise it's enquiry-only.
+const isPriced = (price: string) => price.startsWith('Rs');
+
 export default function Home() {
   const { addToCart } = useCart();
   const [activeSlide, setActiveSlide] = useState(0);
@@ -324,13 +327,27 @@ EST. 2024 — PURE &amp; DESI
                 </div>
                 <h4 className="text-xl font-serif font-bold mb-2 italic text-stone-900">{product.name}</h4>
                 <div className="flex justify-between items-center">
-                  <span className="text-lime font-bold text-lg">{product.price}</span>
-                  <button 
-                    onClick={() => addToCart(product)}
-                    className="text-[10px] font-bold uppercase tracking-widest text-stone-400 hover:text-lime transition-all"
-                  >
-                    Add to Box +
-                  </button>
+                  {isPriced(product.price) ? (
+                    <>
+                      <span className="text-lime font-bold text-lg">{product.price}</span>
+                      <button
+                        onClick={() => addToCart(product)}
+                        className="text-[10px] font-bold uppercase tracking-widest text-stone-400 hover:text-lime transition-all"
+                      >
+                        Add to Box +
+                      </button>
+                    </>
+                  ) : (
+                    <>
+                      <span className="text-[11px] font-bold uppercase tracking-widest text-lime">Call for Query</span>
+                      <Link
+                        href="/contact"
+                        className="text-[10px] font-bold uppercase tracking-widest text-stone-400 hover:text-lime transition-all"
+                      >
+                        Call to Order
+                      </Link>
+                    </>
+                  )}
                 </div>
               </motion.div>
             ))}

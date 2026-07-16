@@ -171,7 +171,7 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                     onClick={handleNext}
                     className="w-full bg-stone-900 text-white py-6 rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-lime transition-all duration-500 disabled:opacity-20 shadow-xl shadow-stone-900/10"
                   >
-                    Confirm Order — ${cartTotal.toFixed(2)}
+                    Confirm Order — Rs {cartTotal.toLocaleString('en-US')}
                   </button>
                 </motion.div>
               )}
@@ -209,7 +209,7 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                       <div className="flex justify-between items-center p-3 md:p-4 bg-white rounded-2xl border border-stone-100">
                         <div>
                           <span className="text-[7px] font-bold text-stone-400 uppercase tracking-widest block mb-0.5">Total Amount</span>
-                          <span className="text-base md:text-lg font-bold text-lime">${cartTotal.toFixed(2)}</span>
+                          <span className="text-base md:text-lg font-bold text-lime">Rs {cartTotal.toLocaleString('en-US')}</span>
                         </div>
                       </div>
                     </div>
