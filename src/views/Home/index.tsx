@@ -22,12 +22,12 @@ export default function Home() {
   return (
     <div className="flex flex-col text-stone-900 selection:bg-lime selection:text-white">
       {/* 1. Hero Section - Immersive Layout */}
-      <section className="relative min-h-screen flex flex-col pt-40 px-6 bg-linear-to-br from-[#E9F0E1] via-[#DEE8D4] to-lime/10 overflow-hidden">
-        <main className="flex-1 grid grid-cols-12 gap-6 items-center max-w-7xl mx-auto w-full pb-12">
+      <section className="relative min-h-screen flex flex-col pt-28 px-6 bg-linear-to-br from-[#E9F0E1] via-[#DEE8D4] to-lime/10 overflow-hidden">
+        <main className="grid grid-cols-12 gap-6 items-center max-w-7xl mx-auto w-full pt-8 pb-12">
           {/* Vertical Metadata Sidebar */}
-          <div className="col-span-1 h-full hidden lg:flex flex-col justify-between py-12 border-l border-stone-900/5 pl-4">
+          <div className="col-span-1 hidden lg:flex flex-col justify-between gap-12 py-4 border-l border-stone-900/5 pl-4 self-stretch">
             <div className="vertical-text text-[10px] tracking-[0.6em] opacity-30 font-bold uppercase whitespace-nowrap">
-              EST. 2024 — HANDMADE IN SMALL BATCHES — PURE &amp; DESI
+EST. 2024 — PURE &amp; DESI
             </div>
             <div className="flex flex-col space-y-4 items-center">
               <div className="w-2 h-2 rounded-full bg-lime" />
@@ -81,7 +81,7 @@ export default function Home() {
           </div>
 
           {/* Featured Ghee Slider */}
-          <div className="col-span-12 lg:col-span-5 h-full flex items-center justify-center relative pb-12">
+          <div className="col-span-12 lg:col-span-5 flex items-center justify-center relative pb-12">
             {/* soft radial glow behind the jars */}
             <div className="absolute w-64 h-64 md:w-96 md:h-96 bg-lime/20 rounded-full blur-3xl pointer-events-none" />
 
