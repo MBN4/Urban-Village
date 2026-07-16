@@ -190,8 +190,8 @@ export default function About() {
       {/* 6. Transparency Checklist */}
       <section className="section-padding bg-lime/10 text-stone-900 border-y border-stone-900/5">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-          <div>
-            <h2 className="text-5xl md:text-[6rem] font-serif font-bold leading-[0.9] mb-12 italic">Total System <br /> <span className="not-italic text-stone-900/40">Transparency.</span></h2>
+          <div className="min-w-0">
+            <h2 className="text-5xl md:text-7xl font-serif font-bold leading-tight md:leading-[1.02] mb-12 italic break-words">Total System <br /> <span className="not-italic text-stone-900/40">Transparency.</span></h2>
             <p className="text-xl text-stone-500 font-light max-w-md">Our commitment to truth is baked into our business model, not our marketing.</p>
           </div>
           <div className="space-y-8">
