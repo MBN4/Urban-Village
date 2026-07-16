@@ -74,7 +74,7 @@ export default function Preloader() {
                 <img 
                   src="/assets/images/urban-village-logo.png" 
                   alt="Urban Village Logo" 
-                  className="h-8 w-auto object-contain grayscale opacity-60"
+                  className="h-8 w-auto object-contain"
                 />
                 <span className="text-[10px] font-bold tracking-[0.6em] uppercase text-stone-400">Urban Village</span>
               </div>

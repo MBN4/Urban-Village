@@ -23,11 +23,11 @@ export default function Home() {
     <div className="flex flex-col text-stone-900 selection:bg-lime selection:text-white">
       {/* 1. Hero Section - Immersive Layout */}
       <section className="relative min-h-screen flex flex-col pt-40 px-6 bg-linear-to-br from-[#E9F0E1] via-[#DEE8D4] to-lime/10 overflow-hidden">
-        <main className="flex-1 grid grid-cols-12 gap-6 items-end max-w-7xl mx-auto w-full pb-12">
+        <main className="flex-1 grid grid-cols-12 gap-6 items-center max-w-7xl mx-auto w-full pb-12">
           {/* Vertical Metadata Sidebar */}
           <div className="col-span-1 h-full hidden lg:flex flex-col justify-between py-12 border-l border-stone-900/5 pl-4">
             <div className="vertical-text text-[10px] tracking-[0.6em] opacity-30 font-bold uppercase whitespace-nowrap">
-              ESTABLISHED 2024 — PURE HARVEST — VERMONT HIGHLANDS
+              EST. 2024 — HANDMADE IN SMALL BATCHES — PURE &amp; DESI
             </div>
             <div className="flex flex-col space-y-4 items-center">
               <div className="w-2 h-2 rounded-full bg-lime" />
@@ -37,7 +37,7 @@ export default function Home() {
           </div>
 
           {/* Main Hero Text */}
-          <div className="col-span-12 lg:col-span-6 flex flex-col justify-end pb-12 space-y-8">
+          <div className="col-span-12 lg:col-span-6 flex flex-col justify-center space-y-8">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -50,10 +50,10 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
-              className="text-6xl md:text-8xl font-serif leading-[0.9] tracking-tighter text-stone-900"
+              className="text-6xl md:text-7xl font-serif leading-[0.95] tracking-tighter text-stone-900"
             >
-              <span className="italic">Liquid</span> <br />
-              <span className="font-bold not-italic">Gold.</span>
+              <span className="italic">Where taste</span> <br />
+              <span className="font-bold not-italic">meets</span> <span className="font-bold not-italic text-lime">tradition.</span>
             </motion.h1>
 
             <motion.p
@@ -72,7 +72,7 @@ export default function Home() {
               className="flex gap-4 pt-4"
             >
               <Link href="/shop" className="px-8 py-4 bg-lime text-white rounded-full text-xs font-bold uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-lime/20 flex items-center justify-center">
-                Shop Harvest
+                Shop Now
               </Link>
               <button className="px-8 py-4 bg-stone-900/5 border border-stone-900/10 text-stone-900 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-stone-900/10 transition-all">
                 Our Story
@@ -85,8 +85,9 @@ export default function Home() {
             {/* soft radial glow behind the jars */}
             <div className="absolute w-64 h-64 md:w-96 md:h-96 bg-lime/20 rounded-full blur-3xl pointer-events-none" />
 
-            <div className="relative w-full max-w-sm flex flex-col items-center">
-              {/* floating image stage — stacked crossfade so the incoming jar never waits on the outgoing one */}
+            <div className="relative w-full max-w-sm flex items-center justify-center">
+              {/* floating image stage — the jar is the element that lines up with the headline;
+                  the name/price/indicators float just beneath it so they don't shift the jar off-axis */}
               <motion.div
                 animate={{ y: [0, -14, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
@@ -104,42 +105,44 @@ export default function Home() {
                     className="absolute inset-0 w-full h-full object-contain drop-shadow-2xl"
                   />
                 </AnimatePresence>
-              </motion.div>
 
-              {/* name / price / add */}
-              <motion.div
-                key={`meta-${activeSlide}`}
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="mt-6 flex items-center justify-between w-full gap-4"
-              >
-                  <div>
-                    <h3 className="text-2xl font-serif font-bold italic text-stone-900">{slide.name}</h3>
-                    <span className="text-lg font-bold text-lime">{slide.price}</span>
-                  </div>
-                  <button
-                    onClick={() => addToCart(slide)}
-                    className="w-12 h-12 shrink-0 rounded-full bg-stone-900 text-white flex items-center justify-center cursor-pointer hover:bg-lime transition-all duration-300 shadow-lg shadow-stone-900/10"
-                    aria-label={`Add ${slide.name} to cart`}
+                <div className="absolute top-full inset-x-0 mt-6 flex flex-col items-center gap-6">
+                  {/* name / price / add */}
+                  <motion.div
+                    key={`meta-${activeSlide}`}
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                    className="flex items-center justify-between w-full gap-4"
                   >
-                    <Plus size={20} />
-                  </button>
-                </motion.div>
+                    <div>
+                      <h3 className="text-2xl font-serif font-bold italic text-stone-900">{slide.name}</h3>
+                      <span className="text-lg font-bold text-lime">{slide.price}</span>
+                    </div>
+                    <button
+                      onClick={() => addToCart(slide)}
+                      className="w-12 h-12 shrink-0 rounded-full bg-stone-900 text-white flex items-center justify-center cursor-pointer hover:bg-lime transition-all duration-300 shadow-lg shadow-stone-900/10"
+                      aria-label={`Add ${slide.name} to cart`}
+                    >
+                      <Plus size={20} />
+                    </button>
+                  </motion.div>
 
-              {/* slide indicators */}
-              <div className="flex gap-2.5 mt-8">
-                {heroSlides.map((s, i) => (
-                  <button
-                    key={s.id}
-                    onClick={() => setActiveSlide(i)}
-                    aria-label={`Show ${s.name}`}
-                    className={`h-1.5 rounded-full transition-all duration-500 ${
-                      i === activeSlide ? 'w-8 bg-lime' : 'w-1.5 bg-stone-900/20 hover:bg-stone-900/40'
-                    }`}
-                  />
-                ))}
-              </div>
+                  {/* slide indicators */}
+                  <div className="flex gap-2.5">
+                    {heroSlides.map((s, i) => (
+                      <button
+                        key={s.id}
+                        onClick={() => setActiveSlide(i)}
+                        aria-label={`Show ${s.name}`}
+                        className={`h-1.5 rounded-full transition-all duration-500 ${
+                          i === activeSlide ? 'w-8 bg-lime' : 'w-1.5 bg-stone-900/20 hover:bg-stone-900/40'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </main>
@@ -161,7 +164,7 @@ export default function Home() {
                       <img 
                         src={product.image} 
                         alt={product.name} 
-                        className="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                         referrerPolicy="no-referrer"
                       />
                     </div>
@@ -206,10 +209,8 @@ export default function Home() {
                 <img 
                   src={category.image} 
                   alt={category.title} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60 group-hover:opacity-100"
-                  referrerPolicy="no-referrer"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-white to-transparent opacity-60 group-hover:opacity-20 transition-opacity" />
               </div>
               <div className="flex justify-between items-end mb-4">
                 <h3 className="text-3xl font-serif font-bold italic text-stone-900">{category.title}</h3>
@@ -314,7 +315,7 @@ export default function Home() {
                   <img 
                     src={product.image} 
                     alt={product.name} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 grayscale opacity-70 group-hover:grayscale-0 group-hover:opacity-100"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     referrerPolicy="no-referrer"
                   />
                   <span className="absolute top-4 left-4 bg-lime text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg shadow-lime/20">

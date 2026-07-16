@@ -108,7 +108,7 @@ export default function Shop() {
                   className="glass-card p-6 group cursor-pointer hover:bg-white transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-stone-900/5"
                 >
                   <div className="aspect-[4/5] rounded-[24px] overflow-hidden mb-6 relative">
-                    <img src={bundle.image} className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" alt={bundle.title} />
+                    <img src={bundle.image} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt={bundle.title} />
                     <div className="absolute top-4 right-4 bg-lime text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg shadow-lime/20">{bundle.price}</div>
                   </div>
                   <h4 className="text-xl font-serif font-bold italic text-stone-900 mb-4">{bundle.title}</h4>
@@ -199,7 +199,7 @@ export default function Shop() {
                     <img 
                       src={product.image} 
                       alt={product.name} 
-                      className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700"
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute inset-0 bg-lime/0 group-hover:bg-lime/5 transition-colors duration-500 flex items-center justify-center gap-4">

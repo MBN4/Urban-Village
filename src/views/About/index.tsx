@@ -61,7 +61,7 @@ export default function About() {
                className="absolute inset-0 rounded-[48px] overflow-hidden shadow-inner z-10 bg-white p-4"
             >
                <div className="w-full h-full rounded-[32px] overflow-hidden border border-stone-200">
-                <img src="/assets/images/products/ghee/desi-ghee-both.jpeg" className="w-full h-full object-cover grayscale" alt="Desi ghee" />
+                <img src="/assets/images/products/ghee/desi-ghee-both.jpeg" className="w-full h-full object-cover" alt="Desi ghee" />
                </div>
             </motion.div>
 

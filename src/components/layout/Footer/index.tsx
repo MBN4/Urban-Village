@@ -56,7 +56,7 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-stone-900/5 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-[10px] text-stone-400 uppercase tracking-widest font-bold">
-          © {new Date().getFullYear()} Urban Village. PURE HARVEST.
+          © {new Date().getFullYear()} Urban Village • Pure Harvest | Designed & Developed by TopTrending
         </p>
         <div className="flex gap-8 text-[10px] text-stone-400 uppercase tracking-widest font-bold">
           <a href="#" className="hover:text-stone-900 transition-colors">Privacy Policy</a>

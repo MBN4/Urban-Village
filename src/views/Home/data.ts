@@ -110,24 +110,24 @@ export const farmLogos = [
 export const productCategories = [
   {
     id: 1,
+    title: 'Pickles',
+    image: '/assets/images/products/pickles/mango-boneless-pickle.png',
+    description: 'Hand-cut achaar preserved by hand in small batches.',
+    count: '6 Items'
+  },
+  {
+    id: 2,
     title: 'Desi Ghee',
     image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg',
     description: 'Wood-churned from grass-fed cattle, the traditional way.',
     count: '2 Items'
   },
   {
-    id: 2,
-    title: 'Pickles & Chutneys',
-    image: '/assets/images/products/pickles/mango-boneless-pickle.png',
-    description: 'Hand-cut achaar preserved by hand in small batches.',
-    count: '9 Items'
-  },
-  {
     id: 3,
-    title: 'Stone-Ground Spices',
-    image: '/assets/images/products/spices/red-chili-powder.png',
-    description: 'Pure, unadulterated masalas ground fresh for full aroma.',
-    count: '10 Items'
+    title: 'Chutneys',
+    image: '/assets/images/products/pickles/green-chutney.png',
+    description: 'Fresh, tangy chutneys ground the traditional way.',
+    count: '3 Items'
   }
 ];
 

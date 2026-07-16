@@ -83,7 +83,7 @@ export default function Journal() {
                 <img 
                   src={article.image} 
                   alt={article.title} 
-                  className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
                 />
                 <span className="absolute top-8 left-8 bg-white/90 backdrop-blur-md px-4 py-2 border border-stone-900/5 rounded-full text-[10px] font-bold uppercase tracking-widest text-lime shadow-sm">
@@ -113,7 +113,7 @@ export default function Journal() {
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
           <div className="lg:w-1/2">
              <div className="rounded-[40px] overflow-hidden aspect-video lg:aspect-square border border-stone-900/5 shadow-2xl shadow-stone-900/5">
-               <img src="/assets/images/products/ghee/desi-ghee-1kg.jpeg" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700" alt="Featured" />
+               <img src="/assets/images/products/ghee/desi-ghee-1kg.jpeg" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Featured" />
              </div>
           </div>
           <div className="lg:w-1/2">
