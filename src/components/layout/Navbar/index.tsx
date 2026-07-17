@@ -51,7 +51,7 @@ export default function Navbar() {
           <img 
             src="/assets/images/urban-village-logo.png" 
             alt="Urban Village Logo" 
-            className="h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
           />
           <span className="text-2xl font-bold tracking-tighter uppercase text-stone-900">
             {siteName}

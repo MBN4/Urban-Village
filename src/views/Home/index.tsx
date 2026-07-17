@@ -445,16 +445,16 @@ EST. 2024 — PURE &amp; DESI
                 <div className="relative w-full h-full">
                   {/* Floating Data Bubbles */}
                   {[
-                    { label: 'pH', value: '6.4', x: '10%', y: '20%' },
-                    { label: 'NITROGEN', value: '42ppm', x: '80%', y: '15%' },
-                    { label: 'MOISTURE', value: '18%', x: '5%', y: '75%' },
-                    { label: 'TEMP', value: '22°C', x: '85%', y: '80%' },
+                    { label: 'pH', value: '6.4', x: '0%', y: '5%' },
+                    { label: 'NITROGEN', value: '42ppm', x: '78%', y: '2%' },
+                    { label: 'MOISTURE', value: '18%', x: '0%', y: '88%' },
+                    { label: 'TEMP', value: '22°C', x: '78%', y: '90%' },
                   ].map((data, i) => (
                     <motion.div
                       key={i}
                       animate={{ y: [0, -10, 0] }}
                       transition={{ duration: 4 + i, repeat: Infinity }}
-                      className="absolute glass-card px-4 py-2 flex flex-col items-start min-w-[80px]"
+                      className="absolute z-20 glass-card px-4 py-2 flex flex-col items-start min-w-[80px]"
                       style={{ left: data.x, top: data.y }}
                     >
                       <span className="text-[7px] font-bold opacity-30 tracking-[0.2em] uppercase">{data.label}</span>
@@ -470,7 +470,7 @@ EST. 2024 — PURE &amp; DESI
                         rotate: [0, 5, 0]
                       }}
                       transition={{ duration: 10, repeat: Infinity }}
-                      className="w-64 h-64 md:w-80 md:h-80 rounded-full border border-lime/20 flex flex-col items-center justify-center text-center p-12 relative"
+                      className="w-52 h-52 md:w-64 md:h-64 rounded-full border border-lime/20 flex flex-col items-center justify-center text-center p-12 relative"
                     >
                       <div className="absolute inset-0 bg-lime/10 blur-3xl rounded-full" />
                       <div className="relative z-10 px-4">

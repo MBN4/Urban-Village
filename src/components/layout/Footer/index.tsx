@@ -13,7 +13,7 @@ export default function Footer() {
             <img 
               src="/assets/images/urban-village-logo.png" 
               alt="Urban Village Logo" 
-              className="h-12 w-auto object-contain"
+              className="h-16 w-auto object-contain"
             />
             <span className="text-2xl font-bold tracking-tighter uppercase">Urban Village</span>
           </Link>
@@ -56,7 +56,15 @@ export default function Footer() {
 
       <div className="max-w-7xl mx-auto mt-20 pt-8 border-t border-stone-900/5 flex flex-col md:flex-row justify-between items-center gap-4">
         <p className="text-[10px] text-stone-400 uppercase tracking-widest font-bold">
-          © {new Date().getFullYear()} Urban Village • Pure Harvest | Designed & Developed by TopTrending
+          © {new Date().getFullYear()} Urban Village • Pure Harvest | Designed & Developed by{' '}
+          <a
+            href="https://toptrendingms.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-stone-900 transition-colors underline"
+          >
+            toptrending
+          </a>
         </p>
         <div className="flex gap-8 text-[10px] text-stone-400 uppercase tracking-widest font-bold">
           <a href="#" className="hover:text-stone-900 transition-colors">Privacy Policy</a>
