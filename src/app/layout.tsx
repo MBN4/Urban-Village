@@ -9,7 +9,7 @@ import Preloader from '@/components/ui/Preloader';
 
 export const metadata: Metadata = {
   title: 'Urban Village',
-  description: 'Urban Village brings regenerative produce and sustainable farm-to-door delivery to discerning food lovers.',
+  description: 'The Urban Village brings authentic, traditionally crafted foods — pure desi ghee, natural honey, handmade pickles, chutneys, and stone-ground spices — from rural farms to modern homes.',
   icons: {
     icon: '/assets/images/urban-village-logo.png',
     shortcut: '/assets/images/urban-village-logo.png',

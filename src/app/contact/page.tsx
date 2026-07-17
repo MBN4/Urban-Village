@@ -2,7 +2,7 @@ import Contact from '@/views/Contact';
 
 export const metadata = {
   title: 'Urban Village | Contact',
-  description: 'Get in touch with the Urban Village team for questions about farm delivery, wholesale, or sustainable partnerships.',
+  description: 'Get in touch with The Urban Village for questions about our products, placing an order, or wholesale enquiries.',
 };
 
 export default function Page() {

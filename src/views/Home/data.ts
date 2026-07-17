@@ -1,12 +1,12 @@
 export const heroData = {
-  title: 'Cultivating a\nHealthier Future',
-  subtitle: 'REGENERATIVE • ORGANIC • DIRECT',
-  description: 'Grown with intention, harvested at peak vitality, and delivered with transparency from our fields to your table.',
-  cta: 'Explore Harvest',
+  title: 'Where Taste\nMeets Tradition',
+  subtitle: 'PURE • HANDMADE • DESI',
+  description: 'Authentic, traditionally crafted foods brought from rural farms to modern homes — prepared in small batches to preserve their natural goodness.',
+  cta: 'Shop Now',
   stats: [
-    { label: 'Local Farms', value: '42+' },
-    { label: 'Nutrient Density', value: '100%' },
-    { label: 'Carbon Neutral', value: '2025' }
+    { label: 'Natural Ingredients', value: '100%' },
+    { label: 'Small-Batch Made', value: 'Fresh' },
+    { label: 'Added Preservatives', value: 'None' }
   ]
 };
 
@@ -35,13 +35,13 @@ export const heroSlides = [
 ];
 
 export const marqueeItems = [
-  'VIBRANT SEASONAL PRODUCE',
-  'REGENERATIVE FARMING',
-  'NON-GMO CERTIFIED',
-  'COLD-PRESSED ARTISAN OILS',
-  'FARM-TO-TABLE FRESHNESS',
-  'SUSTAINABLE HARVESTS',
-  'HEIRLOOM SEEDS ONLY'
+  'PURE DESI GHEE',
+  'STONE-GROUND SPICES',
+  'HANDMADE PICKLES',
+  'NATURAL SIDR HONEY',
+  'FARM-FRESH DESI EGGS',
+  'NO PRESERVATIVES',
+  'SMALL-BATCH MADE'
 ];
 
 export const products = [
@@ -77,29 +77,29 @@ export const products = [
 
 export const testimonials = [
   {
-    quote: "Urban Village has completely changed my relationship with the food I eat. The flavor profile of their heirloom varieties is unmatched.",
-    author: "Elena Rossi",
-    role: "Professional Chef"
+    quote: "The desi ghee tastes exactly like the one my grandmother used to make — rich, aromatic, and pure. It brings back so many memories.",
+    author: "Ayesha Khan",
+    role: "Home Cook"
   },
   {
-    quote: "Knowing that my purchases support regenerative agriculture makes every meal feel like a contribution to the planet.",
-    author: "Marcus Thorne",
-    role: "Eco-Architect"
+    quote: "Finally, pickles and chutneys that taste homemade. You can tell everything is made in small batches with real ingredients.",
+    author: "Bilal Ahmed",
+    role: "Loyal Customer"
   }
 ];
 
 export const benefits = [
   {
-    title: "100% Traceable",
-    description: "Every item comes with a QR code showing the exact farm, harvest date, and soil quality metrics."
+    title: "100% Natural",
+    description: "No artificial colours, flavours, or preservatives — just pure, wholesome ingredients the way nature intended."
   },
   {
-    title: "Eco-Packaging",
-    description: "Completely plastic-free, compostable packaging designed to disappear back into the earth."
+    title: "Traditional Recipes",
+    description: "Time-honoured family methods, from Bilona-churned butter to stone-ground spices, that keep flavour and nutrition intact."
   },
   {
-    title: "Ethical Pricing",
-    description: "We ensure our farmers receive 2-3x the standard market rate for their labor and expertise."
+    title: "Small-Batch Fresh",
+    description: "Freshly prepared in small batches from premium ingredients sourced from trusted local farmers."
   }
 ];
 
@@ -132,8 +132,8 @@ export const productCategories = [
 ];
 
 export const storyData = {
-  title: 'Beyond the Leaf',
-  subtitle: 'OUR PHILOSOPHY',
-  description: 'We believe real food is made slowly and honestly. From wood-churned ghee to hand-cut achaar, every jar carries the flavour of tradition and the trust of pure ingredients.',
+  title: 'Rooted in Tradition',
+  subtitle: 'OUR STORY',
+  description: 'The finest food doesn’t come from factories — it comes from nature, tradition, and the hands of people who care. We bring the authentic taste of village life to modern homes, without compromising on quality, purity, or freshness.',
   image: '/assets/images/products/ghee/desi-ghee-both.jpeg'
 };

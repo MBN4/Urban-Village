@@ -230,10 +230,10 @@ EST. 2024 — PURE &amp; DESI
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
           <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4">
             {[
-              { label: 'Soil Vitality', value: '88%', sub: 'BIOME SCORE', icon: '01' },
-              { label: 'Biodynamic', value: 'Waxing', sub: 'LUNAR PHASE', icon: '02' },
-              { label: 'Mineral Density', value: '14.2x', sub: 'NUTRIENT RATIO', icon: '03' },
-              { label: 'Carbon Sink', value: '-2.4t', sub: 'NET OFFSET', icon: '04' }
+              { label: 'Pure & Natural', value: '100%', sub: 'NO ADDITIVES', icon: '01' },
+              { label: 'Preservative-Free', value: 'Zero', sub: 'CHEMICALS', icon: '02' },
+              { label: 'Traditional', value: 'Small', sub: 'BATCHES', icon: '03' },
+              { label: 'Buffalo Milk Ghee', value: 'A–K', sub: 'NATURAL VITAMINS', icon: '04' }
             ].map((metric, i) => (
               <motion.div
                 key={metric.label}
@@ -387,15 +387,15 @@ EST. 2024 — PURE &amp; DESI
               viewport={{ once: true }}
               className="relative"
             >
-              <span className="text-[10px] font-bold tracking-[0.4em] text-lime uppercase mb-8 block">THE LIVING ENGINE</span>
+              <span className="text-[10px] font-bold tracking-[0.4em] text-lime uppercase mb-8 block">MADE WITH CARE</span>
               <h2 className="text-6xl md:text-8xl font-serif font-bold text-stone-900 leading-[0.85] italic mb-10">
-                Responsive <br /> <span className="not-italic text-stone-900/40">Ecology.</span>
+                Pure &amp; <br /> <span className="not-italic text-stone-900/40">Honest.</span>
               </h2>
               <div className="space-y-8">
                 {[
-                  { label: 'Photosynthetic Efficiency', value: 92, unit: '%' },
-                  { label: 'Microbial Activity', value: 3.4, unit: 'x' },
-                  { label: 'Carbon Sequestration', value: 1240, unit: 'kg' }
+                  { label: 'Natural Ingredients', value: 100, unit: '%' },
+                  { label: 'Traditional Methods', value: 100, unit: '%' },
+                  { label: 'Added Preservatives', value: 0, unit: '%' }
                 ].map((stat, i) => (
                   <div key={stat.label} className="space-y-3">
                     <div className="flex justify-between items-end">
@@ -445,10 +445,10 @@ EST. 2024 — PURE &amp; DESI
                 <div className="relative w-full h-full">
                   {/* Floating Data Bubbles */}
                   {[
-                    { label: 'pH', value: '6.4', x: '0%', y: '5%' },
-                    { label: 'NITROGEN', value: '42ppm', x: '78%', y: '2%' },
-                    { label: 'MOISTURE', value: '18%', x: '0%', y: '88%' },
-                    { label: 'TEMP', value: '22°C', x: '78%', y: '90%' },
+                    { label: 'PURE', value: '100%', x: '0%', y: '5%' },
+                    { label: 'NATURAL', value: 'No.1', x: '78%', y: '2%' },
+                    { label: 'SMALL BATCH', value: 'Fresh', x: '0%', y: '88%' },
+                    { label: 'ADDITIVES', value: 'None', x: '78%', y: '90%' },
                   ].map((data, i) => (
                     <motion.div
                       key={i}
@@ -474,10 +474,10 @@ EST. 2024 — PURE &amp; DESI
                     >
                       <div className="absolute inset-0 bg-lime/10 blur-3xl rounded-full" />
                       <div className="relative z-10 px-4">
-                        <div className="text-[10px] font-bold tracking-[0.4em] uppercase text-lime mb-3">DYNAMIC CORE</div>
-                        <div className="text-5xl md:text-6xl font-serif font-bold italic text-stone-900 mb-6">Pulse.</div>
+                        <div className="text-[10px] font-bold tracking-[0.4em] uppercase text-lime mb-3">OUR STANDARD</div>
+                        <div className="text-5xl md:text-6xl font-serif font-bold italic text-stone-900 mb-6">Pure.</div>
                         <p className="text-[10px] uppercase tracking-[0.2em] text-stone-500 leading-relaxed max-w-[200px]">
-                          Real-time soil health metrics synchronized with the circadian rhythm.
+                          Every batch made the traditional way, with the same care as a home kitchen.
                         </p>
                       </div>
                       

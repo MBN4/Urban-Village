@@ -98,10 +98,10 @@ export default function Contact() {
           </div>
           <div className="lg:col-span-2 space-y-12">
             {[
-              { q: 'How does your delivery cycle work?', a: 'We harvest every Tuesday and Thursday. Depending on your location, your basket arrives within 24-48 hours of being picked.' },
-              { q: 'Can I customize my weekly basket?', a: 'Absolutely. Subscribers can swap up to 4 items in their "Regenerative Box" each week via our mobile app.' },
-              { q: 'What makes your produce "carbon-neutral"?', a: 'We offset our shipping carbon through soil sequestration credits generated purely on our own partner farms.' },
-               { q: 'Do you offer international shipping?', a: 'Currently, our "Pure Harvest" model only supports the Vermont Highlands and surrounding northeast territories to ensure peak freshness.' }
+              { q: 'How do I place an order?', a: 'Browse the shop and add priced items to your basket, or use the "Call to Order" button on any product for prices and orders — we\'ll guide you through the rest.' },
+              { q: 'How should I store your products?', a: 'Store in a cool, dry place away from direct sunlight, and always use a clean, dry spoon for pickles, chutneys, honey, and ghee. White butter is best kept in the freezer.' },
+              { q: 'What makes your food special?', a: 'Everything is 100% natural, made in small batches from premium ingredients using traditional recipes — with no artificial colours, flavours, or preservatives.' },
+               { q: 'Do you offer wholesale?', a: 'Yes. For bulk and wholesale enquiries, reach out to us by phone or email and we\'ll be happy to help.' }
             ].map((faq, i) => (
               <motion.div 
                 key={i} 

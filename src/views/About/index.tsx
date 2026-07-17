@@ -70,8 +70,8 @@ export default function About() {
                whileInView={{ opacity: 1, y: 0 }}
                className="absolute -bottom-12 -right-12 w-56 h-40 bg-stone-900 rounded-[32px] p-8 z-30 shadow-2xl flex flex-col justify-between"
             >
-              <div className="text-[10px] font-bold tracking-[0.3em] uppercase text-lime">METRIC CORE</div>
-              <div className="text-3xl font-serif font-bold italic text-white leading-none">98.2% <br /><span className="text-xs uppercase tracking-widest opacity-40 not-italic">Purity</span></div>
+              <div className="text-[10px] font-bold tracking-[0.3em] uppercase text-lime">PURITY</div>
+              <div className="text-3xl font-serif font-bold italic text-white leading-none">100% <br /><span className="text-xs uppercase tracking-widest opacity-40 not-italic">Natural</span></div>
             </motion.div>
 
             {/* Floating Elements */}
@@ -85,20 +85,20 @@ export default function About() {
           </div>
         </div>
         <div className="bg-[#DEE8D4]/20 text-stone-900 p-12 md:p-24 lg:p-40 flex flex-col justify-center">
-          <h2 className="text-4xl md:text-6xl font-serif font-bold mb-10 italic">Where integrity meets the earth.</h2>
+          <h2 className="text-4xl md:text-6xl font-serif font-bold mb-10 italic">From village kitchens to your table.</h2>
           <p className="text-stone-500 text-lg leading-relaxed mb-12 space-y-6">
-            Industrial agriculture has systemically stripped our soils of vitality. At Urban Village, we’re doing more than just growing organic; we’re rebuilding ecosystems from the ground up.
+            Every meal we grew up with carried the rich flavours of homemade pickles, freshly churned desi ghee, natural honey, and traditional chutneys — prepared using time-honoured family recipes. As these authentic tastes slowly disappeared from everyday life, we set out to preserve them for future generations.
             <br /><br />
-            Our network of farmers utilizes methods that sequester carbon, retain water naturally, and foster a resilience that doesn’t require chemical intervention.
+            We carefully source premium ingredients from trusted local farmers and prepare every product in small batches using traditional methods — keeping natural flavour, aroma, and nutrition intact, with no unnecessary additives or shortcuts.
           </p>
           <div className="grid grid-cols-2 gap-8">
             <div>
-              <div className="text-4xl font-serif font-bold mb-1 text-stone-900">12k+</div>
-              <div className="text-[10px] uppercase tracking-widest text-lime font-bold">Acres Restored</div>
+              <div className="text-4xl font-serif font-bold mb-1 text-stone-900">100%</div>
+              <div className="text-[10px] uppercase tracking-widest text-lime font-bold">Pure &amp; Natural</div>
             </div>
             <div>
-              <div className="text-4xl font-serif font-bold mb-1 text-stone-900">2.4m</div>
-              <div className="text-[10px] uppercase tracking-widest text-lime font-bold">Carbon Tons Sequestered</div>
+              <div className="text-4xl font-serif font-bold mb-1 text-stone-900">Small Batch</div>
+              <div className="text-[10px] uppercase tracking-widest text-lime font-bold">Freshly Prepared</div>
             </div>
           </div>
         </div>
@@ -108,7 +108,7 @@ export default function About() {
       <section className="section-padding">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24">
-            <h2 className="text-5xl md:text-7xl font-serif font-bold text-stone-900">Our Three Pillars</h2>
+            <h2 className="text-5xl md:text-7xl font-serif font-bold text-stone-900">Our Promise</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-20">
             {pillars.map((pillar, i) => (
@@ -162,10 +162,10 @@ export default function About() {
       <section className="section-padding max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row justify-between items-start gap-20">
           <div className="lg:w-1/3 sticky top-32">
-            <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-lime mb-6 block">KNOWLEDGE</span>
-            <h2 className="text-5xl font-serif font-bold text-stone-900 mb-8 leading-tight">Guided by science and soul.</h2>
+            <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-lime mb-6 block">FROM SOIL TO TABLE</span>
+            <h2 className="text-5xl font-serif font-bold text-stone-900 mb-8 leading-tight">Made by people who care.</h2>
             <p className="text-stone-500 leading-relaxed max-w-sm">
-              Our leadership blends advanced agronomy with generational wisdom to push the boundaries of what organic farming can achieve.
+              We work hand in hand with rural farmers and traditional makers, preserving family recipes and supporting local communities with every jar we prepare.
             </p>
           </div>
           <div className="lg:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -191,16 +191,16 @@ export default function About() {
       <section className="section-padding bg-lime/10 text-stone-900 border-y border-stone-900/5">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           <div className="min-w-0">
-            <h2 className="text-5xl md:text-7xl font-serif font-bold leading-tight md:leading-[1.02] mb-12 italic break-words">Total System <br /> <span className="not-italic text-stone-900/40">Transparency.</span></h2>
-            <p className="text-xl text-stone-500 font-light max-w-md">Our commitment to truth is baked into our business model, not our marketing.</p>
+            <h2 className="text-5xl md:text-7xl font-serif font-bold leading-tight md:leading-[1.02] mb-12 italic break-words">Our Promise <br /> <span className="not-italic text-stone-900/40">to You.</span></h2>
+            <p className="text-xl text-stone-500 font-light max-w-md">We're not simply selling food — we're preserving traditions, supporting local communities, and delivering products you can proudly place on your family's table.</p>
           </div>
           <div className="space-y-8">
             {[
-              'Direct-from-farm supply chain tracking',
-              'Open-source regenerative soil metrics',
-              'Fair-Pay farm labor audits published yearly',
-              'Compostable, plastic-free carbon-neutral shipping',
-              'Zero-pesticide, non-GMO heritage seed sourcing'
+              '100% Natural Ingredients',
+              'Traditional Homemade Recipes',
+              'Freshly Prepared in Small Batches',
+              'Pure, Authentic & Preservative-Free',
+              'Crafted with Care, Served with Pride'
             ].map((item, i) => (
               <motion.div 
                 key={i}
@@ -244,10 +244,10 @@ export default function About() {
       <section className="section-padding bg-white border-t border-stone-900/5">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20">
           <div className="lg:col-span-5">
-            <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-lime mb-8 block">SYSTEMS SUPPORT</span>
-            <h2 className="text-5xl md:text-7xl font-serif font-bold text-stone-900 leading-tight italic">Anticipating <br /><span className="not-italic text-stone-300">Inquiry.</span></h2>
+            <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-lime mb-8 block">HELP & SUPPORT</span>
+            <h2 className="text-5xl md:text-7xl font-serif font-bold text-stone-900 leading-tight italic">Common <br /><span className="not-italic text-stone-300">Questions.</span></h2>
             <p className="mt-8 text-stone-500 max-w-sm text-lg leading-relaxed">
-              We believe in radical transparency. If your question remains unanswered, our agronomists are a message away.
+              Everything you need to know about our products, storage, and orders. If your question isn't here, we're just a message away.
             </p>
           </div>
 
@@ -308,4 +308,3 @@ export default function About() {
     </div>
   );
 }
-

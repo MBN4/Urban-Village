@@ -2,7 +2,7 @@ import Journal from '@/views/Journal';
 
 export const metadata = {
   title: 'Urban Village | Journal',
-  description: 'Explore stories, farm insights, and seasonal food journalism from Urban Village’s regenerative agriculture community.',
+  description: 'Stories, recipes, and traditions from The Urban Village — celebrating pure, handmade, small-batch foods.',
 };
 
 export default function Page() {

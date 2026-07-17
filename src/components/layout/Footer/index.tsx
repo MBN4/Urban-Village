@@ -18,7 +18,7 @@ export default function Footer() {
             <span className="text-2xl font-bold tracking-tighter uppercase">Urban Village</span>
           </Link>
           <p className="text-stone-500 max-w-sm mb-8 leading-relaxed text-sm">
-            Reimaging our relationship with food. We partner with local regenerative farms to bring you the highest quality, most nutrient-dense produce directly to your doorstep.
+            Bringing authentic, traditionally crafted foods from rural farms to modern homes — pure desi ghee, natural honey, handmade pickles, and stone-ground spices, prepared in small batches with care.
           </p>
           <div className="flex gap-6">
             {socialLinks.map((social) => (

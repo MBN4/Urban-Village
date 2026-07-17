@@ -89,12 +89,12 @@ export default function Shop() {
               className="space-y-8"
             >
               <span className="text-[10px] font-bold tracking-[0.4em] text-lime uppercase">CURATED BUNDLES</span>
-              <h2 className="text-5xl md:text-7xl font-serif font-bold text-stone-900 italic">The Harvest <br /> <span className="not-italic">Selection.</span></h2>
+              <h2 className="text-5xl md:text-7xl font-serif font-bold text-stone-900 italic">The Ghee <br /> <span className="not-italic">Selection.</span></h2>
               <p className="text-stone-500 text-lg leading-relaxed max-w-md italic">
-                Specifically curated by our agronomists to provide a balanced nutrient profile for your weekly meals.
+                Our wood-churned desi ghee, made from premium buffalo milk using traditional methods — bundled so you never run out.
               </p>
               <div className="flex flex-col gap-4">
-                {['Direct Farm Sourcing', '100% Plastic-Free', 'Carbon Neutral Delivery'].map(item => (
+                {['100% Natural Ingredients', 'Traditional Recipes', 'Preservative-Free'].map(item => (
                   <div key={item} className="flex items-center gap-3">
                     <div className="w-1.5 h-1.5 rounded-full bg-lime" />
                     <span className="text-xs font-bold tracking-widest uppercase text-stone-400">{item}</span>
@@ -153,12 +153,12 @@ export default function Shop() {
       <section className="section-padding bg-lime/10 text-stone-900 border-y border-stone-900/5 overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
           <div className="lg:w-1/2">
-             <h2 className="text-6xl md:text-8xl font-serif font-bold leading-[0.85] tracking-tighter mb-12 italic">Field to Door <br /> <span className="not-italic opacity-40">in 24hrs.</span></h2>
+             <h2 className="text-6xl md:text-8xl font-serif font-bold leading-[0.85] tracking-tighter mb-12 italic">From soil <br /> <span className="not-italic opacity-40">to table.</span></h2>
              <div className="space-y-12">
                {[
-                 { step: '01', title: 'Dawn Harvest', desc: 'Our farmers begin harvesting at 4 AM to preserve plant transpiration.' },
-                 { step: '02', title: 'Hyper-Local Sorting', desc: 'Produce is sorted at the farm level, reducing logistical carbon.' },
-                 { step: '03', title: 'Carbon-Neutral Transit', desc: 'Delivered using our 100% electric fleet across the highlands.' }
+                 { step: '01', title: 'Carefully Sourced', desc: 'Premium ingredients selected from trusted local farmers and producers.' },
+                 { step: '02', title: 'Traditionally Made', desc: 'Prepared in small batches using time-honoured family recipes and methods.' },
+                 { step: '03', title: 'Pure & Preservative-Free', desc: 'No artificial colours, flavours, or preservatives — just natural goodness.' }
                ].map(s => (
                  <div key={s.step} className="flex gap-8 group">
                    <div className="text-3xl font-serif font-bold italic text-stone-300 group-hover:text-lime transition-colors">{s.step}</div>
@@ -183,8 +183,8 @@ export default function Shop() {
         <div className="glass-card max-w-5xl mx-auto p-12 md:p-24 text-center relative overflow-hidden bg-white shadow-xl shadow-stone-900/5">
           <div className="absolute top-0 right-0 w-64 h-64 bg-lime/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
           <span className="text-[10px] font-bold tracking-[0.4em] text-lime uppercase mb-8 block">GIFTING</span>
-          <h2 className="text-5xl md:text-7xl font-serif font-bold text-stone-900 italic mb-10">Invite them to the <br /> <span className="not-italic">Circle.</span></h2>
-          <p className="text-stone-500 max-w-xl mx-auto mb-12 leading-relaxed">Give the gift of peak nutrition. Our digital and physical gift cards support sustainable farming with every purchase.</p>
+          <h2 className="text-5xl md:text-7xl font-serif font-bold text-stone-900 italic mb-10">Share the taste <br /> <span className="not-italic">of tradition.</span></h2>
+          <p className="text-stone-500 max-w-xl mx-auto mb-12 leading-relaxed">Give the gift of pure, homemade goodness. Our gift cards let your loved ones choose their favourite desi ghee, honey, pickles, and more.</p>
           <button className="bg-stone-900 text-white px-12 py-5 rounded-full font-bold uppercase tracking-widest text-xs hover:bg-lime transition-all duration-300 shadow-lg shadow-stone-900/20">
             Explorer Gift Cards
           </button>

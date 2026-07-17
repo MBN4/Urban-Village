@@ -28,7 +28,7 @@ export default function Journal() {
       {/* 3. Category Filter Section */}
       <section className="py-20 bg-[#DEE8D4]/30 border-y border-stone-900/5">
         <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center gap-12">
-          {['Agroecology', 'Chef Series', 'Soil Health', 'Farms', 'Future Food'].map((cat, i) => (
+          {['Recipes', 'Traditions', 'Kitchen Tips', 'Wellness', 'Our Products'].map((cat, i) => (
             <button key={cat} className="group flex flex-col items-center">
               <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-stone-200 group-hover:text-lime transition-colors mb-2">0{i+1}</span>
               <span className="text-lg font-serif font-bold italic text-stone-900 group-hover:translate-y-[-4px] transition-transform">{cat}</span>
@@ -47,8 +47,8 @@ export default function Journal() {
                 <div key={i} className="flex gap-8 group cursor-pointer pb-8 border-b border-stone-900/5">
                   <div className="text-2xl font-serif font-bold italic text-stone-200 group-hover:text-lime transition-all">0{i}.</div>
                   <div>
-                    <h4 className="text-xl font-serif font-bold text-stone-900 mb-2 group-hover:italic transition-all">The Future of Heirloom Seeds in Changing Climates.</h4>
-                    <span className="text-[10px] uppercase tracking-widest text-stone-400 font-bold">5 MIN READ • FARMING</span>
+                    <h4 className="text-xl font-serif font-bold text-stone-900 mb-2 group-hover:italic transition-all">Cooking with Desi Ghee: Everyday Ways to Use It.</h4>
+                    <span className="text-[10px] uppercase tracking-widest text-stone-400 font-bold">4 MIN READ • RECIPES</span>
                   </div>
                 </div>
               ))}
@@ -57,7 +57,7 @@ export default function Journal() {
           <div className="glass-card p-12 flex flex-col justify-center bg-white/40 shadow-xl shadow-stone-900/5 border border-stone-900/5">
             <h3 className="text-3xl font-serif font-bold italic text-stone-900 mb-8">Weekly Digest</h3>
             <p className="text-stone-500 mb-10 leading-relaxed italic font-light">
-              "Every Friday, we send out a curated selection of farm updates, soil metrics, and seasonal recipes. No fluff, just the rhythm of the earth."
+              "Every week, we share simple recipes, traditional kitchen tips, and stories behind our products — straight to your inbox."
             </p>
             <div className="flex flex-col gap-4">
               <input type="email" placeholder="EMAIL ADDRESS" className="bg-stone-900/5 border border-stone-900/10 px-6 py-4 rounded-full focus:outline-none focus:border-lime transition-colors text-xs font-bold uppercase tracking-widest text-stone-900" />
@@ -118,9 +118,9 @@ export default function Journal() {
           </div>
           <div className="lg:w-1/2">
             <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-lime mb-8 block">MAY FEATURE</span>
-            <h2 className="text-5xl md:text-7xl font-serif font-bold mb-10 leading-tight italic text-stone-900">Living Soil: The Hidden Engine of Health.</h2>
+            <h2 className="text-5xl md:text-7xl font-serif font-bold mb-10 leading-tight italic text-stone-900">The Bilona Method: Ghee the Way It Was Meant to Be.</h2>
             <p className="text-stone-500 text-lg leading-relaxed mb-12 italic border-l border-lime pl-8">
-              Understanding why traditional organic isn’t enough anymore, and why the future of flavor lies in the complex microbiology beneath our feet.
+              How premium buffalo milk, patience, and traditional churning create desi ghee with the rich aroma, flavour, and natural goodness that modern shortcuts simply can’t match.
             </p>
             <button className="bg-stone-900 text-white px-10 py-5 rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-lime transition-all duration-300 shadow-lg shadow-stone-900/20">
               Read Deep Dive
