@@ -112,7 +112,7 @@ export default function Shop() {
                   className="glass-card p-6 group cursor-pointer hover:bg-white transition-all duration-500 shadow-sm hover:shadow-xl hover:shadow-stone-900/5"
                 >
                   <div className="aspect-[4/5] rounded-[24px] overflow-hidden mb-6 relative">
-                    <img src={bundle.image} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt={bundle.title} />
+                    <img loading="lazy" decoding="async" src={bundle.image} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt={bundle.title} />
                     <div className="absolute top-4 right-4 bg-lime text-white text-[10px] font-bold px-3 py-1 rounded-full shadow-lg shadow-lime/20">{bundle.price}</div>
                   </div>
                   <h4 className="text-xl font-serif font-bold italic text-stone-900 mb-4">{bundle.title}</h4>
@@ -172,7 +172,7 @@ export default function Shop() {
           </div>
           <div className="lg:w-1/2 relative">
              <div className="rounded-[60px] overflow-hidden aspect-square border-8 border-stone-900/5 shadow-2xl">
-               <img src="/assets/images/products/ghee/desi-ghee-both.jpeg" className="w-full h-full object-cover" alt="Wood-churned desi ghee" />
+               <img loading="lazy" decoding="async" src="/assets/images/products/ghee/desi-ghee-both.jpeg" className="w-full h-full object-cover" alt="Wood-churned desi ghee" />
              </div>
           </div>
         </div>
@@ -209,7 +209,7 @@ export default function Shop() {
                   className="group p-6 glass-card hover:bg-white hover:shadow-2xl hover:shadow-stone-900/5 transition-all duration-500 border border-transparent hover:border-stone-900/5"
                 >
                   <div className="relative aspect-square overflow-hidden rounded-[32px] mb-8 border border-stone-900/5">
-                    <img 
+                    <img loading="lazy" decoding="async" 
                       src={product.image} 
                       alt={product.name} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
         <div className="lg:col-span-2">
           <Link href="/" className="flex items-center gap-3 mb-8">
-            <img 
+            <img loading="lazy" decoding="async" 
               src="/assets/images/urban-village-logo.png" 
               alt="Urban Village Logo" 
               className="h-16 w-auto object-contain"

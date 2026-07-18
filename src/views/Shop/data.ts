@@ -39,6 +39,14 @@ export const shopProducts = [
     image: '/assets/images/products/ghee/desi-ghee-half-kg.jpeg',
     tag: 'Pure'
   },
+  {
+    id: 25,
+    name: 'White Butter (1kg)',
+    price: 'Rs 2,000',
+    category: 'Ghee',
+    image: '/assets/images/products/ghee/white-butter.png',
+    tag: 'Bilona'
+  },
   // Pickles
   {
     id: 3,
@@ -111,6 +119,22 @@ export const shopProducts = [
     category: 'Pickles',
     image: '/assets/images/products/pickles/imli-sauce.png',
     tag: 'Tangy'
+  },
+  {
+    id: 26,
+    name: 'Bitter Gourd Pickle',
+    price: 'Call for query',
+    category: 'Pickles',
+    image: '/assets/images/products/pickles/bitter-gourd-pickle.png',
+    tag: 'Traditional'
+  },
+  {
+    id: 27,
+    name: 'White Chana Pickle',
+    price: 'Call for query',
+    category: 'Pickles',
+    image: '/assets/images/products/pickles/white-chana-pickle.png',
+    tag: 'Hearty'
   },
   // Poultry
   {

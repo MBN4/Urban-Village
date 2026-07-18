@@ -63,7 +63,7 @@ export default function Cart() {
                     className="bg-white/40 glass-card p-6 md:p-8 flex items-center gap-6 md:gap-10 border border-stone-900/5 shadow-sm hover:shadow-xl hover:shadow-stone-900/5 transition-all duration-500"
                   >
                     <div className="w-24 h-24 md:w-32 md:h-32 rounded-2xl overflow-hidden flex-shrink-0 border border-stone-900/5">
-                      <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                      <img loading="lazy" decoding="async" src={item.image} alt={item.name} className="w-full h-full object-cover" />
                     </div>
                     <div className="flex-grow">
                       <div className="flex justify-between items-start mb-2">

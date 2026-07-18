@@ -52,7 +52,7 @@ export default function About() {
                whileInView={{ opacity: 1, x: 0 }}
                className="absolute -top-12 -left-12 w-48 h-64 rounded-[32px] overflow-hidden shadow-2xl z-20 border border-white/20"
             >
-              <img src="/assets/images/products/spices/red-chili-flakes.png" className="w-full h-full object-cover" alt="Stone-ground spices" />
+              <img loading="lazy" decoding="async" src="/assets/images/products/spices/red-chili-flakes.png" className="w-full h-full object-cover" alt="Stone-ground spices" />
             </motion.div>
             
             <motion.div 
@@ -61,7 +61,7 @@ export default function About() {
                className="absolute inset-0 rounded-[48px] overflow-hidden shadow-inner z-10 bg-white p-4"
             >
                <div className="w-full h-full rounded-[32px] overflow-hidden border border-stone-200">
-                <img src="/assets/images/products/ghee/desi-ghee-both.jpeg" className="w-full h-full object-cover" alt="Desi ghee" />
+                <img loading="lazy" decoding="async" src="/assets/images/products/ghee/desi-ghee-both.jpeg" className="w-full h-full object-cover" alt="Desi ghee" />
                </div>
             </motion.div>
 
@@ -121,7 +121,7 @@ export default function About() {
                 className="group"
               >
                 <div className="aspect-[3/4] rounded-[40px] overflow-hidden mb-10 bg-[#DEE8D4]/40">
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src={pillar.image} 
                     alt={pillar.title} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
@@ -223,20 +223,20 @@ export default function About() {
       {/* 7. Gallery Section */}
       <section className="py-20 px-6 grid grid-cols-2 md:grid-cols-4 gap-6 h-[80vh]">
         <div className="rounded-[40px] overflow-hidden">
-          <img src="/assets/images/products/ghee/desi-ghee-1kg.jpeg" className="w-full h-full object-cover" alt="Desi ghee 1kg" />
+          <img loading="lazy" decoding="async" src="/assets/images/products/ghee/desi-ghee-1kg.jpeg" className="w-full h-full object-cover" alt="Desi ghee 1kg" />
         </div>
         <div className="grid grid-rows-2 gap-6">
-          <div className="rounded-[40px] overflow-hidden"><img src="/assets/images/products/pickles/garlic-pickle.png" className="w-full h-full object-cover" alt="Garlic pickle" /></div>
-          <div className="rounded-[40px] overflow-hidden"><img src="/assets/images/products/spices/turmeric-powder.png" className="w-full h-full object-cover" alt="Turmeric powder" /></div>
+          <div className="rounded-[40px] overflow-hidden"><img loading="lazy" decoding="async" src="/assets/images/products/pickles/garlic-pickle.png" className="w-full h-full object-cover" alt="Garlic pickle" /></div>
+          <div className="rounded-[40px] overflow-hidden"><img loading="lazy" decoding="async" src="/assets/images/products/spices/turmeric-powder.png" className="w-full h-full object-cover" alt="Turmeric powder" /></div>
         </div>
         <div className="rounded-[40px] overflow-hidden">
-          <img src="/assets/images/products/poultry/desi-eggs.png" className="w-full h-full object-cover" alt="Desi eggs" />
+          <img loading="lazy" decoding="async" src="/assets/images/products/poultry/desi-eggs.png" className="w-full h-full object-cover" alt="Desi eggs" />
         </div>
         <div className="grid grid-rows-2 gap-6">
           <div className="rounded-[40px] overflow-hidden bg-stone-900 flex items-center justify-center p-10 text-center">
             <span className="text-xl font-serif text-white italic leading-tight italic">Our mission is written in the earth.</span>
           </div>
-          <div className="rounded-[40px] overflow-hidden"><img src="/assets/images/products/pickles/mango-boneless-pickle.png" className="w-full h-full object-cover" alt="Mango pickle" /></div>
+          <div className="rounded-[40px] overflow-hidden"><img loading="lazy" decoding="async" src="/assets/images/products/pickles/mango-boneless-pickle.png" className="w-full h-full object-cover" alt="Mango pickle" /></div>
         </div>
       </section>
 

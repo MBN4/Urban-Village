@@ -97,7 +97,7 @@ EST. 2024 — PURE &amp; DESI
                 className="relative w-full aspect-square"
               >
                 <AnimatePresence>
-                  <motion.img
+                  <motion.img loading="lazy" decoding="async"
                     key={activeSlide}
                     src={slide.image}
                     alt={slide.name}
@@ -164,7 +164,7 @@ EST. 2024 — PURE &amp; DESI
                 {products.map((product) => (
                   <div key={product.id} className="flex items-center gap-8 group">
                     <div className="w-32 h-32 md:w-48 md:h-48 rounded-2xl overflow-hidden border border-stone-900/10 glass-card">
-                      <img 
+                      <img loading="lazy" decoding="async" 
                         src={product.image} 
                         alt={product.name} 
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -209,7 +209,7 @@ EST. 2024 — PURE &amp; DESI
               className="group cursor-pointer glass-card p-6"
             >
               <div className="aspect-[3/4] overflow-hidden rounded-2xl bg-[#DEE8D4]/50 mb-8 relative">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src={category.image} 
                   alt={category.title} 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
@@ -315,7 +315,7 @@ EST. 2024 — PURE &amp; DESI
                 className="group p-6 glass-card hover:bg-stone-900/[0.04] transition-all duration-500"
               >
                 <div className="relative aspect-square overflow-hidden rounded-2xl mb-8 border border-stone-900/5">
-                  <img 
+                  <img loading="lazy" decoding="async" 
                     src={product.image} 
                     alt={product.name} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"

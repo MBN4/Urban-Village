@@ -48,7 +48,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-3 group">
-          <img 
+          <img loading="lazy" decoding="async" 
             src="/assets/images/urban-village-logo.png" 
             alt="Urban Village Logo" 
             className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
@@ -59,16 +59,21 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-10">
+        <div className="hidden md:flex items-center gap-8 lg:gap-10">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.path}
-              className={`text-[10px] uppercase tracking-[0.2em] font-bold transition-colors hover:text-lime ${
-                pathname === link.path ? 'text-lime' : 'text-stone-900/60'
+              className={`group relative text-sm uppercase tracking-[0.15em] font-bold transition-all duration-300 hover:text-lime hover:-translate-y-0.5 ${
+                pathname === link.path ? 'text-lime' : 'text-stone-900/70'
               }`}
             >
               {link.name}
+              <span
+                className={`absolute -bottom-1.5 left-0 h-0.5 bg-lime rounded-full transition-all duration-300 ${
+                  pathname === link.path ? 'w-full' : 'w-0 group-hover:w-full'
+                }`}
+              />
             </Link>
           ))}
         </div>

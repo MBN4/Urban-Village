@@ -71,7 +71,7 @@ export default function Preloader() {
               className="flex flex-col items-center"
             >
               <div className="flex items-center gap-3">
-                <img 
+                <img loading="lazy" decoding="async" 
                   src="/assets/images/urban-village-logo.png" 
                   alt="Urban Village Logo" 
                   className="h-8 w-auto object-contain"
