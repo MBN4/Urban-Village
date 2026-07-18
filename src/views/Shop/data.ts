@@ -1,3 +1,6 @@
+// Products may offer weight variants (1kg / 500gm / 250gm). When `variants`
+// is present, the card shows a size selector and `price` is just the default
+// (first variant). Products without variants use `price` directly.
 export const bundles = [
   {
     title: 'The Ghee Duo',
@@ -16,125 +19,142 @@ export const bundles = [
 export const shopHero = {
   title: 'From our kitchen\nto your table',
   subtitle: 'PURE & HANDMADE',
-  description: 'Shop our range of wood-churned desi ghee, hand-cut achaar, free-range desi poultry, and stone-ground spices — made in small batches, the traditional way.'
+  description: 'Shop our range of wood-churned desi ghee, hand-cut achaar, free-range desi poultry, and stone-ground spices — choose your size and order the amount that suits you.'
 };
 
 export const filters = ['All', 'Ghee', 'Pickles', 'Poultry', 'Spices'];
 
+const g3 = (kg: string, half: string, quarter: string) => [
+  { label: '1 kg', price: `Rs ${kg}` },
+  { label: '500 gm', price: `Rs ${half}` },
+  { label: '250 gm', price: `Rs ${quarter}` }
+];
+
 export const shopProducts = [
-  // Ghee — the hero product
+  // Ghee & Butter
   {
     id: 1,
-    name: 'Desi Ghee (1kg)',
+    name: 'Desi Ghee',
     price: 'Rs 2,800',
     category: 'Ghee',
     image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg',
-    tag: 'Bestseller'
-  },
-  {
-    id: 2,
-    name: 'Desi Ghee (½kg)',
-    price: 'Rs 1,500',
-    category: 'Ghee',
-    image: '/assets/images/products/ghee/desi-ghee-half-kg.jpeg',
-    tag: 'Pure'
+    tag: 'Bestseller',
+    variants: [
+      { label: '1 kg', price: 'Rs 2,800' },
+      { label: '500 gm', price: 'Rs 1,500' }
+    ]
   },
   {
     id: 25,
-    name: 'White Butter (1kg)',
+    name: 'White Butter',
     price: 'Rs 2,000',
     category: 'Ghee',
     image: '/assets/images/products/ghee/white-butter.png',
-    tag: 'Bilona'
+    tag: 'Bilona',
+    variants: [
+      { label: '1 kg', price: 'Rs 2,000' },
+      { label: '500 gm', price: 'Rs 1,000' }
+    ]
   },
-  // Pickles
+  // Pickles & Chutneys
   {
     id: 3,
     name: 'Mango Boneless Pickle',
-    price: 'Call for query',
+    price: 'Rs 850',
     category: 'Pickles',
     image: '/assets/images/products/pickles/mango-boneless-pickle.png',
-    tag: 'Classic'
+    tag: 'Classic',
+    variants: g3('850', '425', '250')
+  },
+  {
+    id: 7,
+    name: 'Mix Boneless Pickle',
+    price: 'Rs 850',
+    category: 'Pickles',
+    image: '/assets/images/products/pickles/mix-boneless-achaar.png',
+    tag: 'Favorite',
+    variants: g3('850', '425', '250')
   },
   {
     id: 4,
     name: 'Garlic Pickle',
-    price: 'Call for query',
+    price: 'Rs 950',
     category: 'Pickles',
     image: '/assets/images/products/pickles/garlic-pickle.png',
-    tag: 'Zesty'
-  },
-  {
-    id: 5,
-    name: 'Green Chili Pickle',
-    price: 'Call for query',
-    category: 'Pickles',
-    image: '/assets/images/products/pickles/green-chili-pickle.png',
-    tag: 'Spicy'
-  },
-  {
-    id: 6,
-    name: 'Lemon Pickle',
-    price: 'Call for query',
-    category: 'Pickles',
-    image: '/assets/images/products/pickles/lemon-pickle.png',
-    tag: 'Tangy'
-  },
-  {
-    id: 7,
-    name: 'Mix Boneless Achaar',
-    price: 'Call for query',
-    category: 'Pickles',
-    image: '/assets/images/products/pickles/mix-boneless-achaar.png',
-    tag: 'Favorite'
+    tag: 'Zesty',
+    variants: g3('950', '475', '250')
   },
   {
     id: 8,
     name: 'Lehsoora Pickle',
-    price: 'Call for query',
+    price: 'Rs 850',
     category: 'Pickles',
     image: '/assets/images/products/pickles/lehsoora-pickle.png',
-    tag: 'Seasonal'
+    tag: 'Seasonal',
+    variants: g3('850', '425', '250')
   },
   {
-    id: 9,
-    name: 'Aalo Bukhara & Dry Fruit Chutney',
-    price: 'Call for query',
+    id: 6,
+    name: 'Lemon Pickle',
+    price: 'Rs 750',
     category: 'Pickles',
-    image: '/assets/images/products/pickles/aalo-bukhara-chutney.png',
-    tag: 'Sweet'
+    image: '/assets/images/products/pickles/lemon-pickle.png',
+    tag: 'Tangy',
+    variants: g3('750', '375', '200')
   },
   {
-    id: 10,
-    name: 'Green Chutney',
-    price: 'Call for query',
+    id: 5,
+    name: 'Green Chili Pickle',
+    price: 'Rs 800',
     category: 'Pickles',
-    image: '/assets/images/products/pickles/green-chutney.png',
-    tag: 'Fresh'
-  },
-  {
-    id: 11,
-    name: 'Imli Sauce',
-    price: 'Call for query',
-    category: 'Pickles',
-    image: '/assets/images/products/pickles/imli-sauce.png',
-    tag: 'Tangy'
+    image: '/assets/images/products/pickles/green-chili-pickle.png',
+    tag: 'Spicy',
+    variants: g3('800', '400', '200')
   },
   {
     id: 26,
     name: 'Bitter Gourd Pickle',
-    price: 'Call for query',
+    price: 'Rs 800',
     category: 'Pickles',
     image: '/assets/images/products/pickles/bitter-gourd-pickle.png',
-    tag: 'Traditional'
+    tag: 'Traditional',
+    variants: g3('800', '400', '200')
   },
   {
     id: 27,
     name: 'White Chana Pickle',
-    price: 'Call for query',
+    price: 'Rs 750',
     category: 'Pickles',
     image: '/assets/images/products/pickles/white-chana-pickle.png',
-    tag: 'Hearty'
+    tag: 'Hearty',
+    variants: g3('750', '400', '200')
+  },
+  {
+    id: 10,
+    name: 'Green Chutney',
+    price: 'Rs 800',
+    category: 'Pickles',
+    image: '/assets/images/products/pickles/green-chutney.png',
+    tag: 'Fresh',
+    variants: g3('800', '400', '200')
+  },
+  {
+    id: 9,
+    name: 'Plum (Aalo Bukhara) Chutney',
+    price: 'Rs 1,500',
+    category: 'Pickles',
+    image: '/assets/images/products/pickles/aalo-bukhara-chutney.png',
+    tag: 'Sweet',
+    variants: g3('1,500', '750', '400')
+  },
+  {
+    id: 11,
+    name: 'Imli Chutney',
+    price: 'Rs 850',
+    category: 'Pickles',
+    image: '/assets/images/products/pickles/imli-sauce.png',
+    tag: 'Tangy',
+    variants: g3('850', '425', '250')
   },
   // Poultry
   {

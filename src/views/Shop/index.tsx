@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Filter, Search, ChevronDown, Plus } from 'lucide-react';
 import { shopHero, shopProducts, filters, bundles } from './data';
 import { useCart } from '../../context/CartContext';
+import ProductCard from './ProductCard';
 
 // A product is buyable only if it has a real PKR price; otherwise it's enquiry-only.
 const isPriced = (price: string) => price.startsWith('Rs');
@@ -199,55 +200,7 @@ export default function Shop() {
         >
           <AnimatePresence mode='popLayout'>
             {filteredProducts.map((product) => (
-                <motion.div
-                  layout
-                  key={product.id}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5 }}
-                  className="group p-6 glass-card hover:bg-white hover:shadow-2xl hover:shadow-stone-900/5 transition-all duration-500 border border-transparent hover:border-stone-900/5"
-                >
-                  <div className="relative aspect-square overflow-hidden rounded-[32px] mb-8 border border-stone-900/5">
-                    <img loading="lazy" decoding="async" 
-                      src={product.image} 
-                      alt={product.name} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      referrerPolicy="no-referrer"
-                    />
-                    <span className="absolute top-6 left-6 bg-white text-stone-900 text-[10px] font-bold uppercase tracking-widest px-4 py-2 rounded-full shadow-sm">
-                      {product.tag}
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-lime mb-1 block">
-                        {product.category}
-                      </span>
-                      <h3 className="text-2xl font-serif font-bold text-stone-900 italic">{product.name}</h3>
-                    </div>
-                    {isPriced(product.price) ? (
-                      <span className="text-xl font-bold text-lime whitespace-nowrap">{product.price}</span>
-                    ) : (
-                      <span className="text-[11px] font-bold uppercase tracking-widest text-lime whitespace-nowrap">Call for Query</span>
-                    )}
-                  </div>
-                  {isPriced(product.price) ? (
-                    <button
-                      onClick={() => addToCart(product)}
-                      className="w-full py-4 mt-4 border border-stone-900/10 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-stone-900 hover:text-white transition-all duration-500"
-                    >
-                      Add to Cart
-                    </button>
-                  ) : (
-                    <Link
-                      href="/contact"
-                      className="block text-center w-full py-4 mt-4 border border-lime/40 text-lime rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-lime hover:text-white transition-all duration-500"
-                    >
-                      Call to Order
-                    </Link>
-                  )}
-                </motion.div>
+              <ProductCard key={product.id} product={product} addToCart={addToCart} />
             ))}
           </AnimatePresence>
         </motion.div>
