@@ -2,18 +2,18 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Star, ShieldCheck, Truck, Recycle, Plus, ChevronDown } from 'lucide-react';
+import { ArrowRight, ShieldCheck, Truck, Recycle, Plus, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
-import { heroData, heroSlides, marqueeItems, productCategories, storyData, products, testimonials, benefits, farmLogos } from './data';
 import { useCart } from '../../context/CartContext';
+import { heroSlides, productCategories, storyData, products, benefits } from './data';
 
-// A product is buyable only if it has a real PKR price; otherwise it's enquiry-only.
 const isPriced = (price: string) => price.startsWith('Rs');
 
 export default function Home() {
   const { addToCart } = useCart();
   const [activeSlide, setActiveSlide] = useState(0);
   const [openCategories, setOpenCategories] = useState<number[]>([]);
+  
   const toggleCategory = (id: number) =>
     setOpenCategories((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
 
@@ -25,15 +25,42 @@ export default function Home() {
   }, []);
 
   const slide = heroSlides[activeSlide];
+
   return (
     <div className="flex flex-col text-stone-900 selection:bg-lime selection:text-white">
-      {/* 1. Hero Section - Immersive Layout */}
+      <div className="w-full bg-stone-900 text-stone-100 py-3 overflow-hidden relative z-50 border-b border-stone-800 flex items-center">
+        <div className="flex whitespace-nowrap min-w-full">
+          <motion.div
+            animate={{ x: [0, -1200] }}
+            transition={{ ease: "linear", duration: 25, repeat: Infinity }}
+            className="flex gap-16 text-[10px] font-bold tracking-[0.3em] uppercase items-center shrink-0 pr-16"
+          >
+            <span>Free delivery for orders above Rs 5,000</span>
+            <span>★</span>
+            <span>Pure &amp; Traditional</span>
+            <span>★</span>
+            <span>Handcrafted in small batches</span>
+            <span>★</span>
+            <span>Free delivery for orders above Rs 5,000</span>
+            <span>★</span>
+            <span>Pure &amp; Traditional</span>
+            <span>★</span>
+            <span>Handcrafted in small batches</span>
+            <span>★</span>
+            <span>Free delivery for orders above Rs 5,000</span>
+            <span>★</span>
+            <span>Pure &amp; Traditional</span>
+            <span>★</span>
+            <span>Handcrafted in small batches</span>
+          </motion.div>
+        </div>
+      </div>
+
       <section className="relative min-h-screen flex flex-col pt-28 px-6 bg-linear-to-br from-[#E9F0E1] via-[#DEE8D4] to-lime/10 overflow-hidden">
         <main className="grid grid-cols-12 gap-6 items-center max-w-7xl mx-auto w-full pt-8 pb-12">
-          {/* Vertical Metadata Sidebar */}
           <div className="col-span-1 hidden lg:flex flex-col justify-between gap-12 py-4 border-l border-stone-900/5 pl-4 self-stretch">
             <div className="vertical-text text-[10px] tracking-[0.6em] opacity-30 font-bold uppercase whitespace-nowrap">
-EST. 2024 — PURE &amp; DESI
+              EST. 2024 — PURE &amp; DESI
             </div>
             <div className="flex flex-col space-y-4 items-center">
               <div className="w-2 h-2 rounded-full bg-lime" />
@@ -42,7 +69,6 @@ EST. 2024 — PURE &amp; DESI
             </div>
           </div>
 
-          {/* Main Hero Text */}
           <div className="col-span-12 lg:col-span-6 flex flex-col justify-center space-y-8">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -86,14 +112,10 @@ EST. 2024 — PURE &amp; DESI
             </motion.div>
           </div>
 
-          {/* Featured Ghee Slider */}
           <div className="col-span-12 lg:col-span-5 flex items-center justify-center relative pb-12">
-            {/* soft radial glow behind the jars */}
             <div className="absolute w-64 h-64 md:w-96 md:h-96 bg-lime/20 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative w-full max-w-sm flex items-center justify-center">
-              {/* floating image stage — the jar is the element that lines up with the headline;
-                  the name/price/indicators float just beneath it so they don't shift the jar off-axis */}
               <motion.div
                 animate={{ y: [0, -14, 0] }}
                 transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
@@ -113,7 +135,6 @@ EST. 2024 — PURE &amp; DESI
                 </AnimatePresence>
 
                 <div className="absolute top-full inset-x-0 mt-6 flex flex-col items-center gap-6">
-                  {/* name / price / add */}
                   <motion.div
                     key={`meta-${activeSlide}`}
                     initial={{ opacity: 0, y: 16 }}
@@ -134,7 +155,6 @@ EST. 2024 — PURE &amp; DESI
                     </button>
                   </motion.div>
 
-                  {/* slide indicators */}
                   <div className="flex gap-2.5">
                     {heroSlides.map((s, i) => (
                       <button
@@ -154,7 +174,6 @@ EST. 2024 — PURE &amp; DESI
         </main>
       </section>
 
-      {/* 2. Marquee Section - Product Showcase */}
       <section className="marquee-container py-12 overflow-hidden whitespace-nowrap border-y border-stone-900/5 bg-stone-900/[0.02]">
         <div className="flex">
           <motion.div 
@@ -189,7 +208,6 @@ EST. 2024 — PURE &amp; DESI
         </div>
       </section>
 
-      {/* 3. Grid Display Section */}
       <section className="section-padding max-w-7xl mx-auto w-full">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
           <div>
@@ -205,71 +223,70 @@ EST. 2024 — PURE &amp; DESI
           {productCategories.map((category, i) => {
             const isOpen = openCategories.includes(category.id);
             return (
-            <motion.div
-              key={category.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.2 }}
-              className="group glass-card p-6"
-            >
-              <div className="aspect-[3/4] overflow-hidden rounded-2xl bg-[#DEE8D4]/50 mb-8 relative">
-                <img loading="lazy" decoding="async"
-                  src={category.image}
-                  alt={category.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-              </div>
-              <div className="flex justify-between items-start mb-4 gap-4">
-                <h3 className="text-3xl font-serif font-bold italic text-stone-900">{category.title}</h3>
-                <button
-                  onClick={() => toggleCategory(category.id)}
-                  aria-expanded={isOpen}
-                  className="shrink-0 mt-1 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime/10 text-lime border border-lime/20 text-[10px] font-bold uppercase tracking-widest hover:bg-lime hover:text-white transition-all cursor-pointer"
-                >
-                  {isOpen ? 'Hide' : `View ${category.items.length} Items`}
-                  <ChevronDown
-                    size={14}
-                    className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+              <motion.div
+                key={category.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: i * 0.2 }}
+                className="group glass-card p-6"
+              >
+                <div className="aspect-[3/4] overflow-hidden rounded-2xl bg-[#DEE8D4]/50 mb-8 relative">
+                  <img loading="lazy" decoding="async"
+                    src={category.image}
+                    alt={category.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                </button>
-              </div>
-              <p className="text-sm text-stone-500 leading-relaxed font-medium">{category.description}</p>
-
-              <AnimatePresence initial={false}>
-                {isOpen && (
-                  <motion.div
-                    key="items"
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: 'auto', opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-                    className="overflow-hidden"
+                </div>
+                <div className="flex justify-between items-start mb-4 gap-4">
+                  <h3 className="text-3xl font-serif font-bold italic text-stone-900">{category.title}</h3>
+                  <button
+                    onClick={() => toggleCategory(category.id)}
+                    aria-expanded={isOpen}
+                    className="shrink-0 mt-1 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime/10 text-lime border border-lime/20 text-[10px] font-bold uppercase tracking-widest hover:bg-lime hover:text-white transition-all cursor-pointer"
                   >
-                    <ul className="mt-6 pt-6 border-t border-stone-900/10 flex flex-col gap-3">
-                      {category.items.map((item) => (
-                        <li
-                          key={item.name}
-                          className="flex items-center gap-4 p-2 rounded-2xl hover:bg-stone-900/[0.03] transition-colors"
-                        >
-                          <div className="w-12 h-12 shrink-0 rounded-xl overflow-hidden border border-stone-900/5 bg-[#DEE8D4]/50">
-                            <img loading="lazy" decoding="async" src={item.image} alt={item.name} className="w-full h-full object-cover" />
-                          </div>
-                          <span className="flex-1 text-sm font-bold text-stone-900 leading-tight">{item.name}</span>
-                          <span className="text-sm font-bold text-lime whitespace-nowrap">{item.price}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+                    {isOpen ? 'Hide' : `View ${category.items.length} Items`}
+                    <ChevronDown
+                      size={14}
+                      className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                    />
+                  </button>
+                </div>
+                <p className="text-sm text-stone-500 leading-relaxed font-medium">{category.description}</p>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      key="items"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <ul className="mt-6 pt-6 border-t border-stone-900/10 flex flex-col gap-3">
+                        {category.items.map((item) => (
+                          <li
+                            key={item.name}
+                            className="flex items-center gap-4 p-2 rounded-2xl hover:bg-stone-900/[0.03] transition-colors"
+                          >
+                            <div className="w-12 h-12 shrink-0 rounded-xl overflow-hidden border border-stone-900/5 bg-[#DEE8D4]/50">
+                              <img loading="lazy" decoding="async" src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                            </div>
+                            <span className="flex-1 text-sm font-bold text-stone-900 leading-tight">{item.name}</span>
+                            <span className="text-sm font-bold text-lime whitespace-nowrap">{item.price}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             );
           })}
         </div>
       </section>
 
-      {/* 4. Philosophy Section */}
       <section className="bg-[#DEE8D4]/30 border-y border-stone-900/5 section-padding overflow-hidden">
         <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-20">
           <div className="w-full lg:w-1/2 grid grid-cols-2 gap-4">
@@ -316,7 +333,6 @@ EST. 2024 — PURE &amp; DESI
         </div>
       </section>
 
-      {/* 5. Benefits Summary */}
       <section className="section-padding">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16">
           {benefits.map((benefit, i) => (
@@ -340,7 +356,6 @@ EST. 2024 — PURE &amp; DESI
         </div>
       </section>
 
-      {/* 6. Products Grid */}
       <section className="section-padding relative">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-24">
@@ -399,7 +414,6 @@ EST. 2024 — PURE &amp; DESI
         </div>
       </section>
 
-      {/* 9. Connect Section */}
       <section className="section-padding bg-lime/10 text-stone-900 border-y border-stone-900/5 overflow-hidden relative">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-lime/10 rounded-full blur-3xl" />
@@ -490,7 +504,6 @@ EST. 2024 — PURE &amp; DESI
         </div>
       </section>
 
-      {/* 8. Living Systems Section */}
       <section className="section-padding bg-[#DEE8D4]/40 overflow-hidden border-t border-stone-900/5">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
@@ -529,7 +542,6 @@ EST. 2024 — PURE &amp; DESI
             </motion.div>
 
             <div className="relative aspect-square">
-              {/* Biological Node Grid */}
               <div className="absolute inset-0 grid grid-cols-6 grid-rows-6 gap-2 opacity-50">
                 {[...Array(36)].map((_, i) => (
                   <motion.div
@@ -556,7 +568,6 @@ EST. 2024 — PURE &amp; DESI
                 className="absolute inset-0 flex flex-col items-center justify-center px-6"
               >
                 <div className="relative w-full h-full">
-                  {/* Floating Data Bubbles */}
                   {[
                     { label: 'PURE', value: '100%', x: '0%', y: '5%' },
                     { label: 'NATURAL', value: 'No.1', x: '78%', y: '2%' },
@@ -575,7 +586,6 @@ EST. 2024 — PURE &amp; DESI
                     </motion.div>
                   ))}
 
-                  {/* Central Bio-Core */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <motion.div 
                       animate={{ 
@@ -594,7 +604,6 @@ EST. 2024 — PURE &amp; DESI
                         </p>
                       </div>
                       
-                      {/* Rotating Outer Rings */}
                       <motion.div 
                         animate={{ rotate: 360 }}
                         transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
@@ -606,7 +615,6 @@ EST. 2024 — PURE &amp; DESI
                         className="absolute inset-[30px] border-b border-l border-stone-900/10 rounded-full"
                       />
                       
-                      {/* Pulse Ring */}
                       <motion.div 
                         animate={{ scale: [1, 1.5, 1], opacity: [0.5, 0, 0.5] }}
                         transition={{ duration: 4, repeat: Infinity }}
