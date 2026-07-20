@@ -113,21 +113,37 @@ export const productCategories = [
     title: 'Pickles',
     image: '/assets/images/products/pickles/mango-boneless-pickle.png',
     description: 'Hand-cut achaar preserved by hand in small batches.',
-    count: '6 Items'
+    items: [
+      { name: 'Mango Boneless Pickle', price: 'Rs 850', image: '/assets/images/products/pickles/mango-boneless-pickle.png' },
+      { name: 'Mix Boneless Pickle', price: 'Rs 850', image: '/assets/images/products/pickles/mix-boneless-achaar.png' },
+      { name: 'Garlic Pickle', price: 'Rs 950', image: '/assets/images/products/pickles/garlic-pickle.png' },
+      { name: 'Lehsoora Pickle', price: 'Rs 850', image: '/assets/images/products/pickles/lehsoora-pickle.png' },
+      { name: 'Lemon Pickle', price: 'Rs 750', image: '/assets/images/products/pickles/lemon-pickle.png' },
+      { name: 'Green Chili Pickle', price: 'Rs 800', image: '/assets/images/products/pickles/green-chili-pickle.png' },
+      { name: 'Bitter Gourd Pickle', price: 'Rs 800', image: '/assets/images/products/pickles/bitter-gourd-pickle.png' },
+      { name: 'White Chana Pickle', price: 'Rs 750', image: '/assets/images/products/pickles/white-chana-pickle.png' }
+    ]
   },
   {
     id: 2,
     title: 'Desi Ghee',
     image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg',
     description: 'Wood-churned from grass-fed cattle, the traditional way.',
-    count: '2 Items'
+    items: [
+      { name: 'Desi Ghee (1kg)', price: 'Rs 2,800', image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg' },
+      { name: 'Desi Ghee (½kg)', price: 'Rs 1,500', image: '/assets/images/products/ghee/desi-ghee-half-kg.jpeg' }
+    ]
   },
   {
     id: 3,
     title: 'Chutneys',
     image: '/assets/images/products/pickles/green-chutney.png',
     description: 'Fresh, tangy chutneys ground the traditional way.',
-    count: '3 Items'
+    items: [
+      { name: 'Green Chutney', price: 'Rs 800', image: '/assets/images/products/pickles/green-chutney.png' },
+      { name: 'Plum (Aalo Bukhara) Chutney', price: 'Rs 1,500', image: '/assets/images/products/pickles/aalo-bukhara-chutney.png' },
+      { name: 'Imli Chutney', price: 'Rs 850', image: '/assets/images/products/pickles/imli-sauce.png' }
+    ]
   }
 ];
 

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowRight, Star, ShieldCheck, Truck, Recycle, Plus } from 'lucide-react';
+import { ArrowRight, Star, ShieldCheck, Truck, Recycle, Plus, ChevronDown } from 'lucide-react';
 import Link from 'next/link';
 import { heroData, heroSlides, marqueeItems, productCategories, storyData, products, testimonials, benefits, farmLogos } from './data';
 import { useCart } from '../../context/CartContext';
@@ -13,6 +13,9 @@ const isPriced = (price: string) => price.startsWith('Rs');
 export default function Home() {
   const { addToCart } = useCart();
   const [activeSlide, setActiveSlide] = useState(0);
+  const [openCategories, setOpenCategories] = useState<number[]>([]);
+  const toggleCategory = (id: number) =>
+    setOpenCategories((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]));
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -198,30 +201,71 @@ EST. 2024 — PURE &amp; DESI
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {productCategories.map((category, i) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+          {productCategories.map((category, i) => {
+            const isOpen = openCategories.includes(category.id);
+            return (
             <motion.div
               key={category.id}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: i * 0.2 }}
-              className="group cursor-pointer glass-card p-6"
+              className="group glass-card p-6"
             >
               <div className="aspect-[3/4] overflow-hidden rounded-2xl bg-[#DEE8D4]/50 mb-8 relative">
-                <img loading="lazy" decoding="async" 
-                  src={category.image} 
-                  alt={category.title} 
+                <img loading="lazy" decoding="async"
+                  src={category.image}
+                  alt={category.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="flex justify-between items-end mb-4">
+              <div className="flex justify-between items-start mb-4 gap-4">
                 <h3 className="text-3xl font-serif font-bold italic text-stone-900">{category.title}</h3>
-                <span className="text-[10px] font-bold uppercase tracking-widest text-lime">{category.count}</span>
+                <button
+                  onClick={() => toggleCategory(category.id)}
+                  aria-expanded={isOpen}
+                  className="shrink-0 mt-1 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-lime/10 text-lime border border-lime/20 text-[10px] font-bold uppercase tracking-widest hover:bg-lime hover:text-white transition-all cursor-pointer"
+                >
+                  {isOpen ? 'Hide' : `View ${category.items.length} Items`}
+                  <ChevronDown
+                    size={14}
+                    className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                  />
+                </button>
               </div>
               <p className="text-sm text-stone-500 leading-relaxed font-medium">{category.description}</p>
+
+              <AnimatePresence initial={false}>
+                {isOpen && (
+                  <motion.div
+                    key="items"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                    className="overflow-hidden"
+                  >
+                    <ul className="mt-6 pt-6 border-t border-stone-900/10 flex flex-col gap-3">
+                      {category.items.map((item) => (
+                        <li
+                          key={item.name}
+                          className="flex items-center gap-4 p-2 rounded-2xl hover:bg-stone-900/[0.03] transition-colors"
+                        >
+                          <div className="w-12 h-12 shrink-0 rounded-xl overflow-hidden border border-stone-900/5 bg-[#DEE8D4]/50">
+                            <img loading="lazy" decoding="async" src={item.image} alt={item.name} className="w-full h-full object-cover" />
+                          </div>
+                          <span className="flex-1 text-sm font-bold text-stone-900 leading-tight">{item.name}</span>
+                          <span className="text-sm font-bold text-lime whitespace-nowrap">{item.price}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
