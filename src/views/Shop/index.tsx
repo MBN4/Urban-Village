@@ -7,12 +7,14 @@ import { Filter, Search, ChevronDown, Plus } from 'lucide-react';
 import { shopHero, shopProducts, filters, bundles } from './data';
 import { useCart } from '../../context/CartContext';
 import ProductCard from './ProductCard';
+import ProductDetailsModal from './ProductDetailsModal';
 
 // A product is buyable only if it has a real PKR price; otherwise it's enquiry-only.
 const isPriced = (price: string) => price.startsWith('Rs');
 
 export default function Shop() {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [selectedProduct, setSelectedProduct] = useState<any>(null);
   const { addToCart } = useCart();
 
   const filteredProducts = activeFilter === 'All' 
@@ -200,7 +202,7 @@ export default function Shop() {
         >
           <AnimatePresence mode='popLayout'>
             {filteredProducts.map((product) => (
-              <ProductCard key={product.id} product={product} addToCart={addToCart} />
+              <ProductCard key={product.id} product={product} addToCart={addToCart} onOpenDetails={setSelectedProduct} />
             ))}
           </AnimatePresence>
         </motion.div>
@@ -211,6 +213,13 @@ export default function Shop() {
           </div>
         )}
       </section>
+
+      <ProductDetailsModal
+        product={selectedProduct}
+        isOpen={!!selectedProduct}
+        onClose={() => setSelectedProduct(null)}
+        addToCart={addToCart}
+      />
     </div>
   );
 }

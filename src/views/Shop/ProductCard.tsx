@@ -17,7 +17,7 @@ interface Product {
   variants?: Variant[];
 }
 
-export default function ProductCard({ product, addToCart }: { product: Product; addToCart: (p: any) => void; }) {
+export default function ProductCard({ product, addToCart, onOpenDetails }: { product: Product; addToCart: (p: any) => void; onOpenDetails: (product: any) => void; }) {
   const variants = product.variants;
   const [sel, setSel] = useState(0);
 
@@ -46,7 +46,8 @@ export default function ProductCard({ product, addToCart }: { product: Product; 
       animate={{ opacity: 1, scale: 1 }}
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.5 }}
-      className="group flex flex-col p-6 glass-card hover:bg-white hover:shadow-2xl hover:shadow-stone-900/5 transition-all duration-500 border border-transparent hover:border-stone-900/5"
+      onClick={() => onOpenDetails(product)}
+      className="group flex flex-col p-6 glass-card hover:bg-white hover:shadow-2xl hover:shadow-stone-900/5 transition-all duration-500 border border-stone-900/5 cursor-pointer"
     >
       <div className="relative aspect-square overflow-hidden rounded-[32px] mb-8 border border-stone-900/5">
         <img
@@ -101,7 +102,10 @@ export default function ProductCard({ product, addToCart }: { product: Product; 
               return (
                 <button
                   key={v.label}
-                  onClick={() => setSel(i)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSel(i);
+                  }}
                   aria-pressed={active}
                   className={`relative flex-1 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all duration-300 border ${
                     active
@@ -126,7 +130,10 @@ export default function ProductCard({ product, addToCart }: { product: Product; 
 
       {priced ? (
         <button
-          onClick={handleAdd}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleAdd();
+          }}
           className={`w-full py-4 border border-stone-900/10 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-stone-900 hover:text-white transition-all duration-500 ${variants ? '' : 'mt-auto'}`}
         >
           Add to Cart
@@ -134,6 +141,7 @@ export default function ProductCard({ product, addToCart }: { product: Product; 
       ) : (
         <Link
           href="/contact"
+          onClick={(e) => e.stopPropagation()}
           className="block text-center w-full py-4 mt-auto border border-lime/40 text-lime rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-lime hover:text-white transition-all duration-500"
         >
           Call to Order

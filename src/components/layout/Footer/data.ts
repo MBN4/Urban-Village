@@ -29,7 +29,8 @@ export const footerLinks = [
 ];
 
 export const socialLinks = [
-  { name: 'Instagram', url: '#' },
-  { name: 'Pinterest', url: '#' },
-  { name: 'Twitter', url: '#' },
+  { name: 'Instagram', url: 'https://www.instagram.com/theurbanvillagepk?igsh=eDgxcnU2cTlvb2ly' },
+  { name: 'Facebook', url: 'https://www.facebook.com/share/1D2rwmEJDM/' },
+  { name: 'WhatsApp', url: 'https://wa.me/923283283282' },
+  { name: 'Email', url: 'mailto:urbanvillage72@gmail.com' }
 ];

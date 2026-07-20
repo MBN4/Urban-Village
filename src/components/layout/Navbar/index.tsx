@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ShoppingCart, Menu, X } from 'lucide-react';
 import { navLinks, siteName } from './data';
 import { useCart } from '../../../context/CartContext';
+import { useModal } from '../../../context/ModalContext';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,6 +16,7 @@ export default function Navbar() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const pathname = usePathname();
   const { cartCount } = useCart();
+  const { isAnyModalOpen } = useModal();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,7 +42,7 @@ export default function Navbar() {
   return (
     <motion.nav 
       initial={{ y: 0 }}
-      animate={{ y: visible ? 0 : -100 }}
+      animate={{ y: (!visible || isAnyModalOpen) ? -120 : 0 }}
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       className={`fixed top-0 left-0 w-full z-150 transition-colors duration-500 ${
         scrolled ? 'bg-[#E9F0E1]/90 backdrop-blur-md py-4 border-b border-stone-900/5' : 'bg-transparent py-6'

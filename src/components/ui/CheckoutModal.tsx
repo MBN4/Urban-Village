@@ -1,9 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, CheckCircle2, Landmark, Smartphone, CreditCard, Send, MapPin, Copy, ArrowLeft, ChevronDown } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
+import { useModal } from '../../context/ModalContext';
 
 interface CheckoutModalProps {
   isOpen: boolean;
@@ -15,6 +16,7 @@ type PaymentMethod = 'bank' | 'jazzcash' | 'easypaisa';
 
 export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
   const { cartTotal, clearCart } = useCart();
+  const { openModal, closeModal } = useModal();
   const [step, setStep] = useState<Step>('method');
   const [method, setMethod] = useState<PaymentMethod | null>(null);
   const [address, setAddress] = useState('');
@@ -22,6 +24,12 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
   const [selectedBank, setSelectedBank] = useState<'mcb' | 'meezan'>('mcb');
   const [isBankDropdownOpen, setIsBankDropdownOpen] = useState(false);
   const [isBankDropdownOpen2, setIsBankDropdownOpen2] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) openModal();
+    else closeModal();
+    return () => { if (isOpen) closeModal(); };
+  }, [isOpen]);
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
