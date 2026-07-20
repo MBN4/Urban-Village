@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, CheckCircle2, Truck, Smartphone, CreditCard, Send, MapPin, Copy, ArrowLeft } from 'lucide-react';
+import { X, CheckCircle2, Landmark, Smartphone, CreditCard, Send, MapPin, Copy, ArrowLeft, ChevronDown } from 'lucide-react';
 import { useCart } from '../../context/CartContext';
 
 interface CheckoutModalProps {
@@ -11,7 +11,7 @@ interface CheckoutModalProps {
 }
 
 type Step = 'method' | 'address' | 'payment-info' | 'success';
-type PaymentMethod = 'cod' | 'jazzcash' | 'easypaisa';
+type PaymentMethod = 'bank' | 'jazzcash' | 'easypaisa';
 
 export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
   const { cartTotal, clearCart } = useCart();
@@ -19,6 +19,9 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
   const [method, setMethod] = useState<PaymentMethod | null>(null);
   const [address, setAddress] = useState('');
   const [isCopying, setIsCopying] = useState(false);
+  const [selectedBank, setSelectedBank] = useState<'mcb' | 'meezan'>('mcb');
+  const [isBankDropdownOpen, setIsBankDropdownOpen] = useState(false);
+  const [isBankDropdownOpen2, setIsBankDropdownOpen2] = useState(false);
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);
@@ -28,8 +31,7 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
 
   const handleNext = () => {
     if (step === 'method') {
-      if (method === 'cod') setStep('address');
-      else setStep('payment-info');
+      setStep('payment-info');
     } else if (step === 'address' || step === 'payment-info') {
       setStep('success');
       // In success step, we'll clear the cart when the user closes the modal or after a delay
@@ -44,6 +46,9 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
       setStep('method');
       setMethod(null);
       setAddress('');
+      setSelectedBank('mcb');
+      setIsBankDropdownOpen(false);
+      setIsBankDropdownOpen2(false);
     }, 500);
   };
 
@@ -66,11 +71,11 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
           initial={{ opacity: 0, scale: 0.95, y: 10 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 10 }}
-          className="relative w-full max-w-md bg-white rounded-[32px] overflow-hidden shadow-2xl border border-stone-100"
+          className="relative w-full max-w-md max-h-[90vh] bg-white rounded-[32px] flex flex-col shadow-2xl border border-stone-100 overflow-hidden"
         >
           {/* Navigation Buttons */}
           <div className="absolute top-4 left-4 md:top-8 md:left-8 flex gap-2 z-10">
-            {(step === 'address' || step === 'payment-info') && (
+            {step === 'payment-info' && (
               <button 
                 onClick={() => setStep('method')}
                 className="p-2 md:p-3 hover:bg-stone-100 rounded-full transition-colors flex items-center justify-center text-stone-400 hover:text-stone-900 bg-white/80 backdrop-blur-sm"
@@ -89,7 +94,7 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
             <X size={18} className="text-stone-400 md:w-5 md:h-5" />
           </button>
 
-          <div className="pt-16 p-6 md:pt-20 md:p-10">
+          <div className="pt-16 p-6 md:pt-20 md:p-10 overflow-y-auto flex-grow">
             <AnimatePresence mode="wait">
               {/* Step 1: Method Selection */}
               {step === 'method' && (
@@ -104,35 +109,132 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                   
                   <div className="space-y-3 mb-8 md:mb-10">
                     {[
-                      { id: 'cod', name: 'Cash on Delivery', icon: <Truck size={20} />, desc: 'Pay when your harvest arrives' },
+                      { id: 'bank', name: 'Bank Transfer', icon: <Landmark size={20} />, desc: 'Direct bank transfer' },
                       { id: 'jazzcash', name: 'JazzCash', icon: <Smartphone size={20} />, desc: 'Instant mobile wallet transfer' },
                       { id: 'easypaisa', name: 'EasyPaisa', icon: <CreditCard size={20} />, desc: 'Simple digital payments' }
-                    ].map((opt) => (
-                      <button
-                        key={opt.id}
-                        onClick={() => setMethod(opt.id as PaymentMethod)}
-                        className={`w-full p-4 md:p-5 rounded-[20px] md:rounded-[24px] border-2 text-left flex items-center gap-4 transition-all duration-300 ${
-                          method === opt.id 
-                            ? 'border-lime bg-lime/5' 
-                            : 'border-stone-50 hover:border-stone-100 bg-white'
-                        }`}
-                      >
-                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
-                          method === opt.id ? 'bg-lime text-white' : 'bg-stone-50 text-stone-400'
-                        }`}>
-                          {opt.icon}
-                        </div>
-                        <div>
-                          <div className="font-bold text-stone-900">{opt.name}</div>
-                          <div className="text-xs text-stone-500">{opt.desc}</div>
-                        </div>
-                        {method === opt.id && (
-                          <div className="ml-auto text-lime">
-                            <CheckCircle2 size={24} />
+                    ].map((opt) => {
+                      const isSelected = method === opt.id;
+                      return (
+                        <div
+                          key={opt.id}
+                          className={`w-full rounded-[20px] md:rounded-[24px] border-2 transition-all duration-300 overflow-hidden ${
+                            isSelected 
+                              ? 'border-lime bg-lime/5' 
+                              : 'border-stone-50 hover:border-stone-100 bg-white'
+                          }`}
+                        >
+                          {/* Clickable Header */}
+                          <div
+                            onClick={() => setMethod(isSelected ? null : (opt.id as PaymentMethod))}
+                            className="p-4 md:p-5 text-left flex items-center gap-4 cursor-pointer select-none"
+                          >
+                            <div className={`w-10 h-10 rounded-xl flex items-center justify-center transition-colors ${
+                              isSelected ? 'bg-lime text-white' : 'bg-stone-50 text-stone-400'
+                            }`}>
+                              {opt.icon}
+                            </div>
+                            <div>
+                              <div className="font-bold text-stone-900">{opt.name}</div>
+                              <div className="text-xs text-stone-500">{opt.desc}</div>
+                            </div>
+                            {isSelected && (
+                              <div className="ml-auto text-lime">
+                                <CheckCircle2 size={24} />
+                              </div>
+                            )}
                           </div>
-                        )}
-                      </button>
-                    ))}
+
+                          {/* Expanded Content (for Bank Transfer) */}
+                          {isSelected && opt.id === 'bank' && (
+                            <motion.div 
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: 'auto', opacity: 1 }}
+                              className="px-4 pb-4 md:px-5 md:pb-5 border-t border-stone-100/50"
+                            >
+                              <div className="pt-2 space-y-2">
+                                <div>
+                                  <label className="text-[8px] font-bold text-stone-400 uppercase tracking-widest block mb-1">
+                                    Select Bank
+                                  </label>
+                                  <div className="relative">
+                                    <button
+                                      type="button"
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        setIsBankDropdownOpen(!isBankDropdownOpen);
+                                      }}
+                                      className="w-full bg-white border border-stone-200 rounded-lg p-2.5 pr-8 text-xs font-bold text-stone-900 text-left flex items-center justify-between transition-all cursor-pointer hover:border-stone-300 focus:outline-none focus:border-lime"
+                                    >
+                                      <span>{selectedBank === 'mcb' ? 'MCB Bank' : 'Meezan Bank'}</span>
+                                      <ChevronDown size={12} className={`text-stone-500 transition-transform duration-200 ${isBankDropdownOpen ? 'rotate-180' : ''}`} />
+                                    </button>
+
+                                    <AnimatePresence>
+                                      {isBankDropdownOpen && (
+                                        <motion.div
+                                          initial={{ opacity: 0, y: -4 }}
+                                          animate={{ opacity: 1, y: 0 }}
+                                          exit={{ opacity: 0, y: -4 }}
+                                          className="absolute z-20 top-full left-0 right-0 mt-1 bg-white border border-stone-200 rounded-lg shadow-lg overflow-hidden flex flex-col"
+                                        >
+                                          {[
+                                            { id: 'mcb', name: 'MCB Bank' },
+                                            { id: 'meezan', name: 'Meezan Bank' }
+                                          ].map((bankOpt) => (
+                                            <button
+                                              key={bankOpt.id}
+                                              type="button"
+                                              onClick={(e) => {
+                                                e.stopPropagation();
+                                                setSelectedBank(bankOpt.id as 'mcb' | 'meezan');
+                                                setIsBankDropdownOpen(false);
+                                              }}
+                                              className={`w-full text-left px-3 py-2 text-xs font-bold transition-colors hover:bg-stone-50 flex items-center justify-between cursor-pointer ${
+                                                selectedBank === bankOpt.id ? 'text-lime bg-lime/5' : 'text-stone-700'
+                                              }`}
+                                            >
+                                              <span>{bankOpt.name}</span>
+                                              {selectedBank === bankOpt.id && <CheckCircle2 size={12} className="text-lime" />}
+                                            </button>
+                                          ))}
+                                        </motion.div>
+                                      )}
+                                    </AnimatePresence>
+                                  </div>
+                                </div>
+
+                                {/* Bank details */}
+                                <div className="p-2.5 bg-white rounded-lg border border-stone-150 flex items-center justify-between text-[11px]">
+                                  <div className="space-y-0.5">
+                                    <div className="flex items-center gap-1.5">
+                                      <span className="text-[7.5px] font-bold text-stone-400 uppercase tracking-widest">A/C Number:</span>
+                                      <span className="font-mono font-bold text-stone-900">
+                                        {selectedBank === 'mcb' ? '0690092291006332' : '02810115162525'}
+                                      </span>
+                                    </div>
+                                    <div className="flex items-center gap-1.5">
+                                      <span className="text-[7.5px] font-bold text-stone-400 uppercase tracking-widest">A/C Title:</span>
+                                      <span className="font-bold text-stone-900">
+                                        {selectedBank === 'mcb' ? 'Moon Fatima' : 'Faizan Ahmad'}
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <button 
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      handleCopy(selectedBank === 'mcb' ? '0690092291006332' : '02810115162525');
+                                    }}
+                                    className="p-2 bg-stone-50 text-stone-400 hover:text-lime rounded-md transition-colors cursor-pointer flex-shrink-0"
+                                  >
+                                    {isCopying ? <CheckCircle2 size={12} className="text-lime" /> : <Copy size={12} />}
+                                  </button>
+                                </div>
+                              </div>
+                            </motion.div>
+                          )}
+                        </div>
+                      );
+                    })}
                   </div>
 
                   <button
@@ -140,7 +242,7 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                     onClick={handleNext}
                     className="w-full bg-stone-900 text-white py-6 rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-lime transition-all duration-500 disabled:opacity-20 disabled:cursor-not-allowed shadow-xl shadow-stone-900/10"
                   >
-                    Continue to {method === 'cod' ? 'Address' : 'Instructions'}
+                    Continue to Instructions
                   </button>
                 </motion.div>
               )}
@@ -189,21 +291,99 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                   
                   <div className="bg-stone-50 rounded-[20px] md:rounded-[24px] p-5 md:p-6 mb-8 md:mb-10 border border-stone-50">
                     <p className="text-xs text-stone-500 mb-5 leading-relaxed">
-                      Please transfer to the number below and share a screenshot for verification.
+                      Make the payment and share the screenshot on WhatsApp at <strong className="text-stone-900 font-bold">03283283282</strong> (showing this number) to verify your payment.
                     </p>
                     
                     <div className="space-y-4">
+                      {method === 'bank' && (
+                        <div className="mb-4">
+                          <label className="text-[9px] font-bold text-stone-400 uppercase tracking-widest block mb-2">
+                            Select Bank
+                          </label>
+                          <div className="relative">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setIsBankDropdownOpen2(!isBankDropdownOpen2);
+                              }}
+                              className="w-full bg-white border border-stone-200 rounded-2xl p-4 pr-12 text-sm font-bold text-stone-900 text-left flex items-center justify-between transition-all cursor-pointer hover:border-stone-300 focus:outline-none focus:border-lime"
+                            >
+                              <span>{selectedBank === 'mcb' ? 'MCB Bank' : 'Meezan Bank'}</span>
+                              <ChevronDown size={16} className={`text-stone-500 transition-transform duration-200 ${isBankDropdownOpen2 ? 'rotate-180' : ''}`} />
+                            </button>
+
+                            <AnimatePresence>
+                              {isBankDropdownOpen2 && (
+                                <motion.div
+                                  initial={{ opacity: 0, y: -4 }}
+                                  animate={{ opacity: 1, y: 0 }}
+                                  exit={{ opacity: 0, y: -4 }}
+                                  className="absolute z-20 top-full left-0 right-0 mt-1 bg-white border border-stone-200 rounded-2xl shadow-lg overflow-hidden flex flex-col"
+                                >
+                                  {[
+                                    { id: 'mcb', name: 'MCB Bank' },
+                                    { id: 'meezan', name: 'Meezan Bank' }
+                                  ].map((bankOpt) => (
+                                    <button
+                                      key={bankOpt.id}
+                                      type="button"
+                                      onClick={(e) => {
+                                        e.stopPropagation();
+                                        setSelectedBank(bankOpt.id as 'mcb' | 'meezan');
+                                        setIsBankDropdownOpen2(false);
+                                      }}
+                                      className={`w-full text-left px-4 py-3 text-sm font-bold transition-colors hover:bg-stone-50 flex items-center justify-between cursor-pointer ${
+                                        selectedBank === bankOpt.id ? 'text-lime bg-lime/5' : 'text-stone-700'
+                                      }`}
+                                    >
+                                      <span>{bankOpt.name}</span>
+                                      {selectedBank === bankOpt.id && <CheckCircle2 size={14} className="text-lime" />}
+                                    </button>
+                                  ))}
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        </div>
+                      )}
+
                       <div className="flex justify-between items-center p-3 md:p-4 bg-white rounded-2xl border border-stone-100">
                         <div>
-                          <span className="text-[7px] font-bold text-stone-400 uppercase tracking-widest block mb-0.5">Account Number</span>
-                          <span className="text-base md:text-lg font-bold text-stone-900">0312-3456789</span>
+                          <span className="text-[7px] font-bold text-stone-400 uppercase tracking-widest block mb-0.5">
+                            {method === 'bank' ? 'Account Number' : 'EasyPaisa/JazzCash Number'}
+                          </span>
+                          <span className="text-base md:text-lg font-bold text-stone-900">
+                            {method === 'bank' 
+                              ? (selectedBank === 'mcb' ? '0690092291006332' : '02810115162525')
+                              : '03248444245'
+                            }
+                          </span>
                         </div>
                         <button 
-                          onClick={() => handleCopy('0312-3456789')}
-                          className="p-2.5 bg-stone-50 text-stone-400 hover:text-lime rounded-xl transition-colors"
+                          onClick={() => handleCopy(
+                            method === 'bank' 
+                              ? (selectedBank === 'mcb' ? '0690092291006332' : '02810115162525')
+                              : '03248444245'
+                          )}
+                          className="p-2.5 bg-stone-50 text-stone-400 hover:text-lime rounded-xl transition-colors cursor-pointer"
                         >
                           {isCopying ? <CheckCircle2 size={16} className="text-lime" /> : <Copy size={16} />}
                         </button>
+                      </div>
+
+                      <div className="flex justify-between items-center p-3 md:p-4 bg-white rounded-2xl border border-stone-100">
+                        <div>
+                          <span className="text-[7px] font-bold text-stone-400 uppercase tracking-widest block mb-0.5">
+                            Account Title
+                          </span>
+                          <span className="text-base md:text-lg font-bold text-stone-900">
+                            {method === 'bank' 
+                              ? (selectedBank === 'mcb' ? 'Moon Fatima' : 'Faizan Ahmad')
+                              : 'Moon Fatima'
+                            }
+                          </span>
+                        </div>
                       </div>
 
                       <div className="flex justify-between items-center p-3 md:p-4 bg-white rounded-2xl border border-stone-100">
