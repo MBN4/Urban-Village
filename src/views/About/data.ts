@@ -8,7 +8,7 @@ export const pillars = [
   {
     title: 'Pure & Natural',
     description: '100% natural ingredients with no artificial colours, flavours, or preservatives — wholesome food the way nature intended.',
-    image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg'
+    image: '/assets/images/products/ghee/desi-ghee-1kg.png'
   },
   {
     title: 'Traditional Recipes',

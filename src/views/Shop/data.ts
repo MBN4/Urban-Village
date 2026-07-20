@@ -6,7 +6,7 @@ export const bundles = [
     title: 'The Ghee Duo',
     price: 'Rs 4,300',
     items: ['Desi Ghee 1kg', 'Desi Ghee ½kg', 'Wood-Churned', 'Grass-Fed'],
-    image: '/assets/images/products/ghee/desi-ghee-both.jpeg'
+    image: '/assets/images/products/ghee/desi-ghee-both.png'
   },
   {
     title: 'Achaar Sampler',
@@ -37,7 +37,7 @@ export const shopProducts = [
     name: 'Desi Ghee',
     price: 'Rs 2,800',
     category: 'Ghee',
-    image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg',
+    image: '/assets/images/products/ghee/desi-ghee-1kg.png',
     tag: 'Bestseller',
     variants: [
       { label: '1 kg', price: 'Rs 2,800' },

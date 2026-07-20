@@ -15,21 +15,21 @@ export const heroSlides = [
     id: 1,
     name: 'Desi Ghee (1kg)',
     price: 'Rs 2,800',
-    image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg',
+    image: '/assets/images/products/ghee/desi-ghee-1kg.png',
     category: 'Ghee'
   },
   {
     id: 2,
     name: 'Desi Ghee (½kg)',
     price: 'Rs 1,500',
-    image: '/assets/images/products/ghee/desi-ghee-half-kg.jpeg',
+    image: '/assets/images/products/ghee/desi-ghee-half-kg.png',
     category: 'Ghee'
   },
   {
     id: 'ghee-duo',
     name: 'Desi Ghee Duo',
     price: 'Rs 4,300',
-    image: '/assets/images/products/ghee/desi-ghee-both.jpeg',
+    image: '/assets/images/products/ghee/desi-ghee-both.png',
     category: 'Ghee'
   }
 ];
@@ -49,7 +49,7 @@ export const products = [
     id: 1,
     name: 'Desi Ghee (1kg)',
     price: 'Rs 2,800',
-    image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg',
+    image: '/assets/images/products/ghee/desi-ghee-1kg.png',
     tag: 'Bestseller'
   },
   {
@@ -127,11 +127,11 @@ export const productCategories = [
   {
     id: 2,
     title: 'Desi Ghee',
-    image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg',
+    image: '/assets/images/products/ghee/desi-ghee-1kg.png',
     description: 'Wood-churned from grass-fed cattle, the traditional way.',
     items: [
-      { name: 'Desi Ghee (1kg)', price: 'Rs 2,800', image: '/assets/images/products/ghee/desi-ghee-1kg.jpeg' },
-      { name: 'Desi Ghee (½kg)', price: 'Rs 1,500', image: '/assets/images/products/ghee/desi-ghee-half-kg.jpeg' }
+      { name: 'Desi Ghee (1kg)', price: 'Rs 2,800', image: '/assets/images/products/ghee/desi-ghee-1kg.png' },
+      { name: 'Desi Ghee (½kg)', price: 'Rs 1,500', image: '/assets/images/products/ghee/desi-ghee-half-kg.png' }
     ]
   },
   {
@@ -151,5 +151,5 @@ export const storyData = {
   title: 'Rooted in Tradition',
   subtitle: 'OUR STORY',
   description: 'The finest food doesn’t come from factories — it comes from nature, tradition, and the hands of people who care. We bring the authentic taste of village life to modern homes, without compromising on quality, purity, or freshness.',
-  image: '/assets/images/products/ghee/desi-ghee-both.jpeg'
+  image: '/assets/images/products/ghee/desi-ghee-both.png'
 };

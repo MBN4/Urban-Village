@@ -61,7 +61,7 @@ export default function About() {
                className="absolute inset-0 rounded-[48px] overflow-hidden shadow-inner z-10 bg-white p-4"
             >
                <div className="w-full h-full rounded-[32px] overflow-hidden border border-stone-200">
-                <img loading="lazy" decoding="async" src="/assets/images/products/ghee/desi-ghee-both.jpeg" className="w-full h-full object-cover" alt="Desi ghee" />
+                <img loading="lazy" decoding="async" src="/assets/images/products/ghee/desi-ghee-both.png" className="w-full h-full object-cover" alt="Desi ghee" />
                </div>
             </motion.div>
 
@@ -223,7 +223,7 @@ export default function About() {
       {/* 7. Gallery Section */}
       <section className="py-20 px-6 grid grid-cols-2 md:grid-cols-4 gap-6 h-[80vh]">
         <div className="rounded-[40px] overflow-hidden">
-          <img loading="lazy" decoding="async" src="/assets/images/products/ghee/desi-ghee-1kg.jpeg" className="w-full h-full object-cover" alt="Desi ghee 1kg" />
+          <img loading="lazy" decoding="async" src="/assets/images/products/ghee/desi-ghee-1kg.png" className="w-full h-full object-cover" alt="Desi ghee 1kg" />
         </div>
         <div className="grid grid-rows-2 gap-6">
           <div className="rounded-[40px] overflow-hidden"><img loading="lazy" decoding="async" src="/assets/images/products/pickles/garlic-pickle.png" className="w-full h-full object-cover" alt="Garlic pickle" /></div>
