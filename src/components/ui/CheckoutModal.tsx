@@ -15,7 +15,7 @@ type Step = 'method' | 'address' | 'payment-info' | 'success';
 type PaymentMethod = 'bank' | 'jazzcash' | 'easypaisa';
 
 export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
-  const { cartTotal, clearCart } = useCart();
+  const { cartTotal, deliveryCharge, orderTotal, clearCart } = useCart();
   const { openModal, closeModal } = useModal();
   const [step, setStep] = useState<Step>('method');
   const [method, setMethod] = useState<PaymentMethod | null>(null);
@@ -276,12 +276,30 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                     />
                   </div>
 
+                  <div className="mb-6 space-y-2 text-sm">
+                    <div className="flex justify-between text-stone-500">
+                      <span>Subtotal</span>
+                      <span className="font-bold text-stone-900">Rs {cartTotal.toLocaleString('en-US')}</span>
+                    </div>
+                    <div className="flex justify-between text-stone-500">
+                      <span>Delivery Charges</span>
+                      <span className="font-bold text-stone-900">Rs {deliveryCharge.toLocaleString('en-US')}</span>
+                    </div>
+                    <div className="flex justify-between pt-2 border-t border-stone-100 text-stone-900 font-bold">
+                      <span>Total</span>
+                      <span className="text-lime">Rs {orderTotal.toLocaleString('en-US')}</span>
+                    </div>
+                    <p className="text-[10px] text-stone-400 leading-relaxed pt-1">
+                      A flat delivery charge of Rs. 250 applies to all orders across Pakistan.
+                    </p>
+                  </div>
+
                   <button
                     disabled={address.length < 10}
                     onClick={handleNext}
                     className="w-full bg-stone-900 text-white py-6 rounded-full font-bold uppercase tracking-widest text-[10px] hover:bg-lime transition-all duration-500 disabled:opacity-20 shadow-xl shadow-stone-900/10"
                   >
-                    Confirm Order — Rs {cartTotal.toLocaleString('en-US')}
+                    Confirm Order — Rs {orderTotal.toLocaleString('en-US')}
                   </button>
                 </motion.div>
               )}
@@ -394,12 +412,23 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
                         </div>
                       </div>
 
-                      <div className="flex justify-between items-center p-3 md:p-4 bg-white rounded-2xl border border-stone-100">
-                        <div>
-                          <span className="text-[7px] font-bold text-stone-400 uppercase tracking-widest block mb-0.5">Total Amount</span>
-                          <span className="text-base md:text-lg font-bold text-lime">Rs {cartTotal.toLocaleString('en-US')}</span>
+                      <div className="p-3 md:p-4 bg-white rounded-2xl border border-stone-100 space-y-1.5">
+                        <div className="flex justify-between items-center text-xs text-stone-500">
+                          <span>Subtotal</span>
+                          <span className="font-bold text-stone-900">Rs {cartTotal.toLocaleString('en-US')}</span>
+                        </div>
+                        <div className="flex justify-between items-center text-xs text-stone-500">
+                          <span>Delivery Charges</span>
+                          <span className="font-bold text-stone-900">Rs {deliveryCharge.toLocaleString('en-US')}</span>
+                        </div>
+                        <div className="flex justify-between items-center pt-1.5 border-t border-stone-100">
+                          <span className="text-[7px] font-bold text-stone-400 uppercase tracking-widest">Total Amount</span>
+                          <span className="text-base md:text-lg font-bold text-lime">Rs {orderTotal.toLocaleString('en-US')}</span>
                         </div>
                       </div>
+                      <p className="text-[10px] text-stone-400 leading-relaxed">
+                        A flat delivery charge of Rs. 250 applies to all orders across Pakistan.
+                      </p>
                     </div>
                   </div>
 

@@ -30,6 +30,13 @@ const g3 = (kg: string, half: string, quarter: string) => [
   { label: '250 gm', price: `Rs ${quarter}` }
 ];
 
+const g4 = (kg: string, half: string, quarter: string, tenth: string) => [
+  { label: '1 kg', price: `Rs ${kg}` },
+  { label: '500 gm', price: `Rs ${half}` },
+  { label: '250 gm', price: `Rs ${quarter}` },
+  { label: '100 gm', price: `Rs ${tenth}` }
+];
+
 export const shopProducts = [
   // Ghee & Butter
   {
@@ -243,7 +250,8 @@ export const shopProducts = [
   {
     id: 15,
     name: 'Organic Turmeric Powder',
-    price: 'Call for query',
+    price: 'Rs 1,600',
+    variants: g4('1,600', '800', '450', '200'),
     category: 'Spices',
     image: '/assets/images/products/spices/turmeric-powder.png',
     tag: 'Organic',
@@ -253,7 +261,8 @@ export const shopProducts = [
   {
     id: 16,
     name: 'Red Chili Powder',
-    price: 'Call for query',
+    price: 'Rs 1,200',
+    variants: g4('1,200', '600', '300', '150'),
     category: 'Spices',
     image: '/assets/images/products/spices/red-chili-powder.png',
     tag: 'Hot',
@@ -263,7 +272,8 @@ export const shopProducts = [
   {
     id: 17,
     name: 'Red Chili Flakes',
-    price: 'Call for query',
+    price: 'Rs 1,200',
+    variants: g4('1,200', '600', '300', '150'),
     category: 'Spices',
     image: '/assets/images/products/spices/red-chili-flakes.png',
     tag: 'Hot',
@@ -273,7 +283,8 @@ export const shopProducts = [
   {
     id: 18,
     name: 'Coriander Powder',
-    price: 'Call for query',
+    price: 'Rs 1,500',
+    variants: g4('1,500', '750', '400', '175'),
     category: 'Spices',
     image: '/assets/images/products/spices/coriander-powder.png',
     tag: 'Ground',
@@ -283,7 +294,8 @@ export const shopProducts = [
   {
     id: 19,
     name: 'Zeera (Cumin) Powder',
-    price: 'Call for query',
+    price: 'Rs 2,300',
+    variants: g4('2,300', '1,150', '600', '250'),
     category: 'Spices',
     image: '/assets/images/products/spices/zeera-powder.png',
     tag: 'Aromatic',
@@ -293,7 +305,8 @@ export const shopProducts = [
   {
     id: 20,
     name: 'Mix Garam Masala Powder',
-    price: 'Call for query',
+    price: 'Rs 3,800',
+    variants: g4('3,800', '1,900', '1,000', '400'),
     category: 'Spices',
     image: '/assets/images/products/spices/garam-masala-powder.png',
     tag: 'Blend',
@@ -303,7 +316,8 @@ export const shopProducts = [
   {
     id: 21,
     name: 'Chat Masala',
-    price: 'Call for query',
+    price: 'Rs 800',
+    variants: g4('800', '400', '200', '150'),
     category: 'Spices',
     image: '/assets/images/products/spices/chat-masala.png',
     tag: 'Tangy',
@@ -313,7 +327,8 @@ export const shopProducts = [
   {
     id: 22,
     name: 'Black Pepper Powder',
-    price: 'Call for query',
+    price: 'Rs 3,200',
+    variants: g4('3,200', '1,600', '850', '400'),
     category: 'Spices',
     image: '/assets/images/products/spices/black-pepper-powder.png',
     tag: 'Bold',
@@ -323,7 +338,8 @@ export const shopProducts = [
   {
     id: 23,
     name: 'Pink Himalayan Salt',
-    price: 'Call for query',
+    price: 'Rs 250',
+    variants: g4('250', '125', '75', '40'),
     category: 'Spices',
     image: '/assets/images/products/spices/pink-himalayan-salt.png',
     tag: 'Mineral',
@@ -333,7 +349,8 @@ export const shopProducts = [
   {
     id: 24,
     name: 'White Lahori Salt',
-    price: 'Call for query',
+    price: 'Rs 140',
+    variants: g4('140', '75', '40', '20'),
     category: 'Spices',
     image: '/assets/images/products/spices/white-lahori-salt.png',
     tag: 'Traditional',

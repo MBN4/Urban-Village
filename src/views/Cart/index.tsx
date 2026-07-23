@@ -8,7 +8,7 @@ import { useState } from 'react';
 import CheckoutModal from '../../components/ui/CheckoutModal';
 
 export default function Cart() {
-  const { cart, removeFromCart, updateQuantity, cartTotal, cartCount } = useCart();
+  const { cart, removeFromCart, updateQuantity, cartTotal, deliveryCharge, orderTotal, cartCount } = useCart();
   const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
 
   return (
@@ -111,14 +111,17 @@ export default function Cart() {
                     <span className="font-bold">Rs {cartTotal.toLocaleString('en-US')}</span>
                   </div>
                   <div className="flex justify-between text-white/60">
-                    <span className="text-xs uppercase tracking-widest font-bold">Delivery</span>
-                    <span className="font-bold">Calculated at next step</span>
+                    <span className="text-xs uppercase tracking-widest font-bold">Delivery Charges</span>
+                    <span className="font-bold">Rs {deliveryCharge.toLocaleString('en-US')}</span>
                   </div>
                 </div>
-                <div className="flex justify-between items-end mb-12">
+                <div className="flex justify-between items-end mb-4">
                   <span className="text-xs uppercase tracking-widest font-bold text-lime">Total</span>
-                  <span className="text-4xl font-serif font-bold italic">Rs {cartTotal.toLocaleString('en-US')}</span>
+                  <span className="text-4xl font-serif font-bold italic">Rs {orderTotal.toLocaleString('en-US')}</span>
                 </div>
+                <p className="text-[10px] text-white/40 leading-relaxed mb-10">
+                  A flat delivery charge of Rs. 250 applies to all orders across Pakistan.
+                </p>
                 <button 
                   onClick={() => setIsCheckoutOpen(true)}
                   className="w-full bg-lime text-white py-6 rounded-full font-bold uppercase tracking-widest text-[10px] flex items-center justify-center gap-4 hover:bg-white hover:text-stone-900 transition-all duration-500 shadow-xl shadow-lime/20 group"

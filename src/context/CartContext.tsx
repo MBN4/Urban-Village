@@ -18,8 +18,13 @@ interface CartContextType {
   updateQuantity: (id: number | string, quantity: number) => void;
   clearCart: () => void;
   cartTotal: number;
+  deliveryCharge: number;
+  orderTotal: number;
   cartCount: number;
 }
+
+// Flat delivery charge (PKR) applied to every order with at least one item.
+export const DELIVERY_CHARGE = 250;
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
@@ -85,8 +90,14 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const cartCount = cart.reduce((count, item) => count + item.quantity, 0);
 
+  // Delivery applies only when there is something to deliver. `orderTotal` is
+  // the authoritative order total (subtotal + delivery) that should be used for
+  // the placed order, not just the UI subtotal.
+  const deliveryCharge = cart.length > 0 ? DELIVERY_CHARGE : 0;
+  const orderTotal = cartTotal + deliveryCharge;
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart, cartTotal, cartCount }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart, updateQuantity, clearCart, cartTotal, deliveryCharge, orderTotal, cartCount }}>
       {children}
     </CartContext.Provider>
   );
