@@ -60,7 +60,7 @@ export default function Home() {
         <main className="grid grid-cols-12 gap-6 items-center max-w-7xl mx-auto w-full pt-8 pb-12">
           <div className="col-span-1 hidden lg:flex flex-col justify-between gap-12 py-4 border-l border-stone-900/5 pl-4 self-stretch">
             <div className="vertical-text text-[10px] tracking-[0.6em] opacity-30 font-bold uppercase whitespace-nowrap">
-              EST. 2024 — PURE &amp; DESI
+              EST. 2020 — PURE &amp; DESI
             </div>
             <div className="flex flex-col space-y-4 items-center">
               <div className="w-2 h-2 rounded-full bg-lime" />

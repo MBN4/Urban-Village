@@ -12,7 +12,12 @@ export const metadata: Metadata = {
   title: 'Urban Village',
   description: 'The Urban Village brings authentic, traditionally crafted foods — pure desi ghee, natural honey, handmade pickles, chutneys, and stone-ground spices — from rural farms to modern homes.',
   icons: {
-    icon: '/assets/images/urban-village-logo.png',
+    icon: [
+      {
+        url: '/assets/images/urban-village-logo.png',
+        href: '/assets/images/urban-village-logo.png',
+      },
+    ],
     shortcut: '/assets/images/urban-village-logo.png',
     apple: '/assets/images/urban-village-logo.png',
   },
